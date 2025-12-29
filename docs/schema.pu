@@ -1,0 +1,102 @@
+@startuml Game-Shiru Database Schema
+
+title Game-Shiru Database Design (3NF)
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 12
+
+' Main Entities
+entity "Games" as games {
+  + game_id [PK] : INTEGER
+  --
+  title : TEXT
+  release_date : DATE
+  description : TEXT
+  rating : REAL
+  price : REAL
+  developer_id : INTEGER [FK]
+  genre_id : INTEGER [FK]
+}
+
+entity "Platforms" as platforms {
+  + platform_id [PK] : INTEGER
+  --
+  name : TEXT
+  manufacturer : TEXT
+  release_year : INTEGER
+}
+
+entity "Genres" as genres {
+  + genre_id [PK] : INTEGER
+  --
+  name : TEXT
+  description : TEXT
+}
+
+entity "Preferences" as preferences {
+  + tag_id [PK] : INTEGER
+  --
+  name : TEXT
+  category : TEXT
+}
+
+entity "Developers" as developers {
+  + developer_id [PK] : INTEGER
+  --
+  name : TEXT
+  country : TEXT
+  founded_year : INTEGER
+  website : TEXT
+}
+
+' Junction Tables for Many-to-Many Relationships
+entity "Game_Platforms" as game_platforms {
+  + game_id [PK, FK] : INTEGER
+  + platform_id [PK, FK] : INTEGER
+}
+
+entity "Game_Tags" as game_tags {
+  + game_id [PK, FK] : INTEGER
+  + tag_id [PK, FK] : INTEGER
+}
+
+' Relationships
+games ||--o{ game_platforms : "has"
+platforms ||--o{ game_platforms : "supports"
+
+games ||--o{ game_tags : "has"
+preferences ||--o{ game_tags : "applies to"
+
+games }|--|| developers : "developed by"
+games }|--|| genres : "belongs to"
+
+' Notes
+note top of games
+  Contains core game information
+  Normalized to 3NF by separating
+  developers and genres into
+  separate tables
+end note
+
+note right of game_platforms
+  Junction table for
+  Games ↔ Platforms
+  Many-to-Many relationship
+end note
+
+note right of game_tags
+  Junction table for
+  Games ↔ Preferences
+  Many-to-Many relationship
+end note
+
+note bottom
+  All foreign key relationships
+  enforce referential integrity.
+  SQLite will use appropriate
+  indexes for performance.
+end note
+
+@enduml

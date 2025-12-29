@@ -1,0 +1,1502 @@
+[
+  {
+    "id": 1,
+    "title": "ゼルダの伝説 ブレス オブ ザ ワイルド",
+    "platforms": ["Nintendo Switch", "Wii U"],
+    "release_date": "2017-03-03",
+    "developer": "Nintendo EPD",
+    "country": "日本",
+    "genre": "アクション",
+    "description": "広大なハイラルを自由に冒険できるオープンワールドアクション。謎解きや戦闘の自由度が極めて高く、どこへ行くのもプレイヤー次第。",
+    "tags": {
+      "genre": ["アクション", "アドベンチャー", "RPG"],
+      "preference": ["自由度高め", "一人用", "探索"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/c/c6/The_Legend_of_Zelda_Breath_of_the_Wild.jpg"
+  },
+  {
+    "id": 2,
+    "title": "ELDEN RING",
+    "platforms": ["PS5", "PS4", "Xbox", "PC"],
+    "release_date": "2022-02-25",
+    "developer": "FromSoftware",
+    "country": "日本",
+    "genre": "RPG",
+    "description": "ダークファンタジーの世界を探索するオープンワールドRPG。圧倒的な世界観と、手応えのある高難易度な戦闘が特徴。",
+    "tags": {
+      "genre": ["RPG", "アクション"],
+      "preference": ["高難易度", "ダークファンタジー", "自由度高め"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/b/b9/Elden_Ring_Box_art.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Apex Legends",
+    "platforms": ["PS5", "PS4", "Switch", "Xbox", "PC"],
+    "release_date": "2019-02-04",
+    "developer": "Respawn Entertainment",
+    "country": "海外",
+    "genre": "FPS",
+    "description": "3人1組のチームで戦うバトルロイヤルFPS。個性豊かなキャラクター（レジェンド）の能力を駆使してチャンピオンを目指す。",
+    "tags": {
+      "genre": ["FPS", "バトルロイヤル"],
+      "preference": ["協力プレイ", "対戦", "基本プレイ無料"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/d/db/Apex_legends_cover.jpg"
+  },
+  {
+    "id": 4,
+    "title": "スーパーマリオ オデッセイ",
+    "platforms": ["Nintendo Switch"],
+    "release_date": "2017-10-27",
+    "developer": "Nintendo EPD",
+    "country": "日本",
+    "genre": "アクション",
+    "description": "マリオが世界中を旅する箱庭探索型3Dアクション。帽子の相棒キャッピーの能力で敵に乗り移るアクションが新しい。",
+    "tags": {
+      "genre": ["アクション"],
+      "preference": ["一人用", "カジュアル", "探索"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/8/8d/Super_Mario_Odyssey.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Minecraft",
+    "platforms": ["Switch", "PS4", "Xbox", "PC", "Mobile"],
+    "release_date": "2011-11-18",
+    "developer": "Mojang",
+    "country": "海外",
+    "genre": "サンドボックス",
+    "description": "ブロックで構成された世界で、建築や冒険を楽しむサンドボックスゲーム。サバイバル生活もクリエイティブな建築も自由自在。",
+    "tags": {
+      "genre": ["サンドボックス", "シミュレーション"],
+      "preference": ["自由度高め", "協力プレイ", "クリエイティブ"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/5/51/Minecraft_cover.png"
+  },
+  {
+    "id": 6,
+    "title": "ファイナルファンタジーXIV",
+    "platforms": ["PS5", "PS4", "PC", "Xbox"],
+    "release_date": "2013-08-27",
+    "developer": "Square Enix",
+    "country": "日本",
+    "genre": "MMORPG",
+    "description": "世界中のプレイヤーと冒険できるMMORPG。重厚なメインストーリーと、豊富なコンテンツ量で長く楽しめる。",
+    "tags": {
+      "genre": ["MMORPG", "RPG"],
+      "preference": ["ストーリー重視", "協力プレイ", "オンライン"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/4/48/Final_Fantasy_XIV_A_Realm_Reborn_cover.jpg"
+  },
+  {
+    "id": 7,
+    "title": "ペルソナ5 ザ・ロイヤル",
+    "platforms": ["PS5", "PS4", "Switch", "Xbox", "PC"],
+    "release_date": "2019-10-31",
+    "developer": "Atlus",
+    "country": "日本",
+    "genre": "RPG",
+    "description": "高校生として日常を過ごしながら、怪盗として悪い大人の心を盗むRPG。スタイリッシュなUIと音楽、深いストーリーが魅力。",
+    "tags": {
+      "genre": ["RPG"],
+      "preference": ["ストーリー重視", "コマンドバトル", "学園"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/b/b0/Persona_5_Royal_cover_art.jpg"
+  },
+  {
+    "id": 8,
+    "title": "VALORANT",
+    "platforms": ["PC", "PS5", "Xbox"],
+    "release_date": "2020-06-02",
+    "developer": "Riot Games",
+    "country": "海外",
+    "genre": "FPS",
+    "description": "5対5で戦うタクティカルシューター。正確な射撃技術と、キャラクター固有のアビリティを組み合わせた戦略性が求められる。",
+    "tags": {
+      "genre": ["FPS", "タクティカル"],
+      "preference": ["対戦", "競技性高い", "基本プレイ無料"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/f/f6/Valorant_cover_art.jpg"
+  },
+  {
+    "id": 9,
+    "title": "ドラゴンクエストXI 過ぎ去りし時を求めて S",
+    "platforms": ["Switch", "PS4", "Xbox", "PC"],
+    "release_date": "2019-09-27",
+    "developer": "Square Enix",
+    "country": "日本",
+    "genre": "RPG",
+    "description": "勇者として生まれた主人公の運命を描く王道RPG。感動的なストーリーと、初心者でも遊びやすいシステムが特徴。",
+    "tags": {
+      "genre": ["RPG"],
+      "preference": ["ストーリー重視", "王道", "一人用"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/a/af/Dragon_Quest_XI_cover_art.jpg"
+  },
+  {
+    "id": 10,
+    "title": "NieR:Automata",
+    "platforms": ["PS4", "Switch", "Xbox", "PC"],
+    "release_date": "2017-02-23",
+    "developer": "PlatinumGames",
+    "country": "日本",
+    "genre": "アクション",
+    "description": "荒廃した地球を舞台に、アンドロイド兵士たちの戦いを描くアクションRPG。哲学的で衝撃的なストーリー展開が話題。",
+    "tags": {
+      "genre": ["アクション", "RPG"],
+      "preference": ["ストーリー重視", "ハイスピード", "周回要素"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/2/21/Nier_Automata_cover_art.jpg"
+  },
+  {
+    "id": 11,
+    "title": "大乱闘スマッシュブラザーズ SPECIAL",
+    "platforms": ["Nintendo Switch"],
+    "release_date": "2018-12-07",
+    "developer": "Bandai Namco Studios",
+    "country": "日本",
+    "genre": "アクション",
+    "description": "ゲーム界のキャラクターが一同に介して戦う対戦アクション。総勢80体以上のファイターが登場し、最大8人での対戦が可能。",
+    "tags": {
+      "genre": ["アクション", "対戦"],
+      "preference": ["パーティー", "対戦", "キャラゲー"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/5/50/Super_Smash_Bros._Ultimate.jpg"
+  },
+  {
+    "id": 12,
+    "title": "バイオハザード RE:4",
+    "platforms": ["PS5", "PS4", "Xbox", "PC"],
+    "release_date": "2023-03-24",
+    "developer": "Capcom",
+    "country": "日本",
+    "genre": "ホラー",
+    "description": "名作サバイバルホラーのリメイク版。不気味な村での恐怖と、爽快なアクションが見事に融合している。",
+    "tags": {
+      "genre": ["ホラー", "アクション", "TPS"],
+      "preference": ["スリル", "ストーリー重視", "高グラフィック"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/d/df/Resident_Evil_4_remake_cover_art.jpg"
+  },
+  {
+    "id": 13,
+    "title": "モンスターハンター：ワールド",
+    "platforms": ["PS4", "PC", "Xbox"],
+    "release_date": "2018-01-26",
+    "developer": "Capcom",
+    "country": "日本",
+    "genre": "アクション",
+    "description": "雄大な自然の中で巨大なモンスターを狩るハンティングアクション。生態系を感じさせるリアルなグラフィックが特徴。",
+    "tags": {
+      "genre": ["アクション"],
+      "preference": ["協力プレイ", "高難易度", "探索"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/1/1b/Monster_Hunter_World_cover_art.jpg"
+  },
+  {
+    "id": 14,
+    "title": "原神",
+    "platforms": ["PS5", "PS4", "PC", "Mobile"],
+    "release_date": "2020-09-28",
+    "developer": "miHoYo",
+    "country": "海外",
+    "genre": "RPG",
+    "description": "アニメ調の美麗なオープンワールドを旅するRPG。元素反応を利用した戦略的なバトルと、定期的なアップデートが魅力。",
+    "tags": {
+      "genre": ["RPG", "アクション"],
+      "preference": ["基本プレイ無料", "キャラゲー", "探索"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/5/5d/Genshin_Impact_cover.jpg"
+  },
+  {
+    "id": 15,
+    "title": "Among Us",
+    "platforms": ["PC", "Mobile", "Switch", "PS", "Xbox"],
+    "release_date": "2018-06-15",
+    "developer": "InnerSloth",
+    "country": "海外",
+    "genre": "パーティー",
+    "description": "宇宙船を舞台にした人狼系ゲーム。クルーはタスクをこなし、インポスターはクルーを妨害・排除する。心理戦が熱い。",
+    "tags": {
+      "genre": ["パーティー", "人狼"],
+      "preference": ["協力プレイ", "心理戦", "カジュアル"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/9/9a/Among_Us_cover_art.jpg"
+  },
+  {
+    "id": 16,
+    "title": "Undertale",
+    "platforms": ["PC", "Switch", "PS4", "Xbox"],
+    "release_date": "2015-09-15",
+    "developer": "Toby Fox",
+    "country": "海外",
+    "genre": "RPG",
+    "description": "「誰も死ななくていいやさしいRPG」。モンスターを倒すか、和解するかでストーリーが変化する独創的なインディーゲーム。",
+    "tags": {
+      "genre": ["RPG", "インディー"],
+      "preference": ["ストーリー重視", "ドット絵", "マルチエンディング"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/f/f1/Undertale_cover_art.jpg"
+  },
+  {
+    "id": 17,
+    "title": "ストリートファイター6",
+    "platforms": ["PS5", "PS4", "Xbox", "PC"],
+    "release_date": "2023-06-02",
+    "developer": "Capcom",
+    "country": "日本",
+    "genre": "格闘",
+    "description": "対戦格闘ゲームの金字塔。簡単操作の「モダンタイプ」が導入され、初心者でも爽快な対戦が楽しめるようになった。",
+    "tags": {
+      "genre": ["格闘", "アクション"],
+      "preference": ["対戦", "競技性高い", "一人用モードあり"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/2/26/Street_Fighter_6_box_art.jpg"
+  },
+  {
+    "id": 18,
+    "title": "ポケットモンスター スカーレット・バイオレット",
+    "platforms": ["Nintendo Switch"],
+    "release_date": "2022-11-18",
+    "developer": "Game Freak",
+    "country": "日本",
+    "genre": "RPG",
+    "description": "シリーズ初のオープンワールドRPG。パルデア地方を自由に冒険し、ポケモンを捕まえ、育て、バトルを楽しむ。",
+    "tags": {
+      "genre": ["RPG"],
+      "preference": ["収集", "協力プレイ", "自由度高め"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/a/a2/Pokemon_Scarlet_Violet_Box_Art.jpg"
+  },
+  {
+    "id": 19,
+    "title": "スプラトゥーン3",
+    "platforms": ["Nintendo Switch"],
+    "release_date": "2022-09-09",
+    "developer": "Nintendo EPD",
+    "country": "日本",
+    "genre": "アクション",
+    "description": "インクを撃ち合って地面を塗るアクションシューティング。4対4のナワバリバトルの他、協力モードのサーモンランも人気。",
+    "tags": {
+      "genre": ["アクション", "TPS"],
+      "preference": ["対戦", "協力プレイ", "カジュアル"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/7/7f/Splatoon_3_cover_art.jpg"
+  },
+  {
+    "id": 20,
+    "title": "Grand Theft Auto V",
+    "platforms": ["PS5", "PS4", "Xbox", "PC"],
+    "release_date": "2013-09-17",
+    "developer": "Rockstar North",
+    "country": "海外",
+    "genre": "アクション",
+    "description": "架空の都市ロスサントスを舞台に、3人の主人公が裏社会で暴れ回るオープンワールドクライムアクション。",
+    "tags": {
+      "genre": ["アクション", "オープンワールド"],
+      "preference": ["自由度高め", "ストーリー重視", "オンライン"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/a/a5/Grand_Theft_Auto_V.png"
+  },
+  {
+    "id": 21,
+    "title": "ウィッチャー3 ワイルドハント",
+    "platforms": ["PS5", "PS4", "Switch", "Xbox", "PC"],
+    "release_date": "2015-05-19",
+    "developer": "CD Projekt Red",
+    "country": "海外",
+    "genre": "RPG",
+    "description": "怪物退治の専門家「ウィッチャー」となり、戦乱の世界を旅するRPG。圧倒的な物語の質とサイドクエストの完成度が評価されている。",
+    "tags": {
+      "genre": ["RPG", "オープンワールド"],
+      "preference": ["ストーリー重視", "ダークファンタジー", "一人用"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/0/0c/Witcher_3_cover_art.jpg"
+  },
+  {
+    "id": 22,
+    "title": "Cyberpunk 2077",
+    "platforms": ["PS5", "PS4", "Xbox", "PC"],
+    "release_date": "2020-12-10",
+    "developer": "CD Projekt Red",
+    "country": "海外",
+    "genre": "RPG",
+    "description": "巨大都市ナイトシティを舞台にしたSFオープンワールドRPG。サイバーウェアによる身体改造や、選択による物語の変化が特徴。",
+    "tags": {
+      "genre": ["RPG", "FPS", "オープンワールド"],
+      "preference": ["SF", "ストーリー重視", "自由度高め"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/9/9f/Cyberpunk_2077_box_art.jpg"
+  },
+  {
+    "id": 23,
+    "title": "The Elder Scrolls V: Skyrim",
+    "platforms": ["PS5", "PS4", "Switch", "Xbox", "PC"],
+    "release_date": "2011-11-11",
+    "developer": "Bethesda Game Studios",
+    "country": "海外",
+    "genre": "RPG",
+    "description": "剣と魔法のファンタジー世界を自由に生きるオープンワールドRPGの金字塔。何をするのも、どこへ行くのも自由。",
+    "tags": {
+      "genre": ["RPG", "オープンワールド"],
+      "preference": ["自由度高め", "探索", "ファンタジー"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/1/15/The_Elder_Scrolls_V_Skyrim_cover.png"
+  },
+  {
+    "id": 24,
+    "title": "Fallout 4",
+    "platforms": ["PS4", "Xbox", "PC"],
+    "release_date": "2015-11-10",
+    "developer": "Bethesda Game Studios",
+    "country": "海外",
+    "genre": "RPG",
+    "description": "核戦争後の荒廃した世界を生き抜くオープンワールドRPG。拠点の建築や武器の改造など、クラフト要素も充実している。",
+    "tags": {
+      "genre": ["RPG", "FPS", "オープンワールド"],
+      "preference": ["ポストアポカリプス", "探索", "自由度高め"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/7/70/Fallout_4_cover_art.jpg"
+  },
+  {
+    "id": 25,
+    "title": "Red Dead Redemption 2",
+    "platforms": ["PS4", "Xbox", "PC"],
+    "release_date": "2018-10-26",
+    "developer": "Rockstar Games",
+    "country": "海外",
+    "genre": "アクション",
+    "description": "1899年のアメリカ西部を舞台にしたオープンワールドアクション。無法者たちの人間ドラマと、圧倒的にリアルな世界描写が魅力。",
+    "tags": {
+      "genre": ["アクション", "アドベンチャー"],
+      "preference": ["ストーリー重視", "リアル", "オープンワールド"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/4/44/Red_Dead_Redemption_II.jpg"
+  },
+  {
+    "id": 26,
+    "title": "The Last of Us Part I",
+    "platforms": ["PS5", "PC"],
+    "release_date": "2022-09-02",
+    "developer": "Naughty Dog",
+    "country": "海外",
+    "genre": "アクション",
+    "description": "寄生菌の爆発的感染により崩壊した世界を描くサバイバルアクション。ジョエルとエリーの絆を描く物語は映画以上の感動を呼ぶ。",
+    "tags": {
+      "genre": ["アクション", "アドベンチャー"],
+      "preference": ["ストーリー重視", "感動", "リニア"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/4/46/Video_Game_Cover_-_The_Last_of_Us.jpg"
+  },
+  {
+    "id": 27,
+    "title": "God of War Ragnarök",
+    "platforms": ["PS5", "PS4", "PC"],
+    "release_date": "2022-11-09",
+    "developer": "Santa Monica Studio",
+    "country": "海外",
+    "genre": "アクション",
+    "description": "北欧神話を舞台に、父クレイトスと息子アトレウスの旅を描くアクション大作。迫力ある戦闘とシームレスな演出が凄い。",
+    "tags": {
+      "genre": ["アクション", "アドベンチャー"],
+      "preference": ["ストーリー重視", "爽快感", "高グラフィック"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/e/ee/God_of_War_Ragnar%C3%B6k_cover.jpg"
+  },
+  {
+    "id": 28,
+    "title": "Horizon Forbidden West",
+    "platforms": ["PS5", "PS4", "PC"],
+    "release_date": "2022-02-18",
+    "developer": "Guerrilla Games",
+    "country": "海外",
+    "genre": "アクション",
+    "description": "機械獣が支配する未来の地球を探索するオープンワールドアクション。美しい大自然と機械のコントラストが独創的。",
+    "tags": {
+      "genre": ["アクション", "RPG"],
+      "preference": ["探索", "高グラフィック", "SF"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/6/69/Horizon_Forbidden_West_cover_art.jpg"
+  },
+  {
+    "id": 29,
+    "title": "Marvel's Spider-Man 2",
+    "platforms": ["PS5"],
+    "release_date": "2023-10-20",
+    "developer": "Insomniac Games",
+    "country": "海外",
+    "genre": "アクション",
+    "description": "ピーターとマイルズ、2人のスパイダーマンを操作してNYを守るアクション。ウェブスイングでの移動の爽快感は唯一無二。",
+    "tags": {
+      "genre": ["アクション"],
+      "preference": ["爽快感", "ヒーロー", "オープンワールド"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/0/0f/Marvel%27s_Spider-Man_2_cover_art.jpg"
+  },
+  {
+    "id": 30,
+    "title": "Overwatch 2",
+    "platforms": ["PS5", "PS4", "Switch", "Xbox", "PC"],
+    "release_date": "2022-10-04",
+    "developer": "Blizzard Entertainment",
+    "country": "海外",
+    "genre": "FPS",
+    "description": "5対5のチーム対戦型ヒーローシューター。タンク、ダメージ、サポートという役割分担が勝利の鍵を握る。",
+    "tags": {
+      "genre": ["FPS"],
+      "preference": ["協力プレイ", "対戦", "基本プレイ無料"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/9/90/Overwatch_2_cover_art.jpg"
+  },
+  {
+    "id": 31,
+    "title": "Fortnite",
+    "platforms": ["PS5", "Switch", "Xbox", "PC", "Mobile"],
+    "release_date": "2017-07-21",
+    "developer": "Epic Games",
+    "country": "海外",
+    "genre": "TPS",
+    "description": "バトルロイヤルと建築要素を組み合わせたTPS。コラボイベントやクリエイティブモードなど、常に新しい遊びが提供されている。",
+    "tags": {
+      "genre": ["TPS", "バトルロイヤル"],
+      "preference": ["基本プレイ無料", "対戦", "クロスプレイ"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/a/af/Fortnite_Battle_Royale_cover_art.jpg"
+  },
+  {
+    "id": 32,
+    "title": "League of Legends",
+    "platforms": ["PC"],
+    "release_date": "2009-10-27",
+    "developer": "Riot Games",
+    "country": "海外",
+    "genre": "MOBA",
+    "description": "世界で最もプレイされているMOBA。5対5で敵の本拠地破壊を目指す。戦略、反射神経、チームワークの全てが試される。",
+    "tags": {
+      "genre": ["MOBA", "ストラテジー"],
+      "preference": ["競技性高い", "協力プレイ", "基本プレイ無料"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/League_of_Legends_cover_art.jpg/330px-League_of_Legends_cover_art.jpg"
+  },
+  {
+    "id": 33,
+    "title": "Dead by Daylight",
+    "platforms": ["PS5", "PS4", "Switch", "Xbox", "PC"],
+    "release_date": "2016-06-14",
+    "developer": "Behaviour Interactive",
+    "country": "海外",
+    "genre": "ホラー",
+    "description": "キラー1人とサバイバー4人に分かれて戦う非対称対戦ホラー。鬼ごっことかくれんぼを合わせたようなスリルが楽しめる。",
+    "tags": {
+      "genre": ["ホラー", "アクション"],
+      "preference": ["対戦", "協力プレイ", "スリル"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/b/b7/Dead_by_Daylight_Steam_header.jpg"
+  },
+  {
+    "id": 34,
+    "title": "Phasmophobia",
+    "platforms": ["PC", "PS5", "Xbox"],
+    "release_date": "2020-09-18",
+    "developer": "Kinetic Games",
+    "country": "海外",
+    "genre": "ホラー",
+    "description": "ゴーストハンターとなって心霊現象を調査するホラーゲーム。ボイスチャットを使って幽霊と交信するシステムが画期的。",
+    "tags": {
+      "genre": ["ホラー", "シミュレーション"],
+      "preference": ["協力プレイ", "スリル", "没入感"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/8/82/Phasmophobia_cover_art.jpg"
+  },
+  {
+    "id": 35,
+    "title": "バイオハザード7 レジデント イービル",
+    "platforms": ["PS4", "Xbox", "PC", "Switch"],
+    "release_date": "2017-01-24",
+    "developer": "Capcom",
+    "country": "日本",
+    "genre": "ホラー",
+    "description": "アイソレートビュー（一人称視点）を採用し、圧倒的な恐怖を追求したサバイバルホラー。ベイカー邸の探索は緊張の連続。",
+    "tags": {
+      "genre": ["ホラー", "アドベンチャー"],
+      "preference": ["スリル", "一人称", "VR対応"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/8/8a/Resident_Evil_7_cover_art.jpg"
+  },
+  {
+    "id": 36,
+    "title": "SILENT HILL 2 (Remake)",
+    "platforms": ["PS5", "PC"],
+    "release_date": "2024-10-08",
+    "developer": "Konami",
+    "country": "日本",
+    "genre": "ホラー",
+    "description": "サイコロジカルホラーの傑作リメイク。亡き妻からの手紙を受け取り、霧に包まれた街サイレントヒルを彷徨う。",
+    "tags": {
+      "genre": ["ホラー", "アドベンチャー"],
+      "preference": ["ストーリー重視", "ダーク", "謎解き"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/9/90/Silent_Hill_2_remake_cover.jpg"
+  },
+  {
+    "id": 37,
+    "title": "METAL GEAR SOLID V: THE PHANTOM PAIN",
+    "platforms": ["PS4", "Xbox", "PC"],
+    "release_date": "2015-09-02",
+    "developer": "Kojima Productions",
+    "country": "日本",
+    "genre": "アクション",
+    "description": "潜入任務を自由な戦略で攻略できるオープンワールド・ステルスアクション。装備、ルート、時間帯など全てが自由。",
+    "tags": {
+      "genre": ["アクション", "ステルス"],
+      "preference": ["自由度高め", "シリアス", "戦略性"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/8/8f/Metal_Gear_Solid_V_The_Phantom_Pain_cover.png"
+  },
+  {
+    "id": 38,
+    "title": "DEATH STRANDING",
+    "platforms": ["PS5", "PS4", "PC"],
+    "release_date": "2019-11-08",
+    "developer": "Kojima Productions",
+    "country": "日本",
+    "genre": "アクション",
+    "description": "分断された世界を「配達」で繋ぎ直すアクションゲーム。荷物を運び、地形と戦い、他プレイヤーと緩く繋がる体験が新しい。",
+    "tags": {
+      "genre": ["アクション", "アドベンチャー"],
+      "preference": ["ストーリー重視", "ユニーク", "探索"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/2/23/Death_Stranding.jpg"
+  },
+  {
+    "id": 39,
+    "title": "龍が如く0 誓いの場所",
+    "platforms": ["PS4", "PS3", "Xbox", "PC"],
+    "release_date": "2015-03-12",
+    "developer": "Ryu Ga Gotoku Studio",
+    "country": "日本",
+    "genre": "アクション",
+    "description": "バブル時代の歓楽街を舞台に、若き日の桐生一馬と真島吾朗の生き様を描く。シリーズ最高傑作との呼び声も高い。",
+    "tags": {
+      "genre": ["アクション", "アドベンチャー"],
+      "preference": ["ストーリー重視", "熱い", "ミニゲーム豊富"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/2/22/Yakuza_0_cover_art.jpg"
+  },
+  {
+    "id": 40,
+    "title": "龍が如く8",
+    "platforms": ["PS5", "PS4", "Xbox", "PC"],
+    "release_date": "2024-01-26",
+    "developer": "Ryu Ga Gotoku Studio",
+    "country": "日本",
+    "genre": "RPG",
+    "description": "ハワイを舞台にしたシリーズ初の海外編。春日一番と桐生一馬のダブル主人公で贈る、笑いあり涙ありのドラマティックRPG。",
+    "tags": {
+      "genre": ["RPG"],
+      "preference": ["ストーリー重視", "コマンドバトル", "ボリューム大"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/6/68/Like_a_Dragon_Infinite_Wealth_cover.jpg"
+  },
+  {
+    "id": 41,
+    "title": "Stardew Valley",
+    "platforms": ["PC", "Switch", "PS4", "Mobile"],
+    "release_date": "2016-02-26",
+    "developer": "ConcernedApe",
+    "country": "海外",
+    "genre": "シミュレーション",
+    "description": "祖父の古い農場を受け継ぎ、畑を耕し、釣りや採掘をしてスローライフを楽しむ牧場シミュレーション。",
+    "tags": {
+      "genre": ["シミュレーション", "インディー"],
+      "preference": ["癒やし", "やり込み", "カジュアル"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/f/fd/Stardew_Valley_cover.jpg"
+  },
+  {
+    "id": 42,
+    "title": "Terraria",
+    "platforms": ["PC", "Switch", "PS4", "Mobile"],
+    "release_date": "2011-05-16",
+    "developer": "Re-Logic",
+    "country": "海外",
+    "genre": "アクション",
+    "description": "2D横スクロールのサンドボックスアクション。掘る、戦う、探検する、建築する。冒険の要素が凝縮されている。",
+    "tags": {
+      "genre": ["アクション", "サンドボックス"],
+      "preference": ["探索", "クラフト", "協力プレイ"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/1/12/Terraria_cover.jpg"
+  },
+  {
+    "id": 43,
+    "title": "Hollow Knight",
+    "platforms": ["Switch", "PS4", "PC", "Xbox"],
+    "release_date": "2017-02-24",
+    "developer": "Team Cherry",
+    "country": "海外",
+    "genre": "アクション",
+    "description": "滅びゆくムシの王国を探索する2Dアクション。美しい手書きのアートワークと、シビアだがやりごたえのある戦闘が魅力。",
+    "tags": {
+      "genre": ["アクション", "メトロイドヴァニア"],
+      "preference": ["高難易度", "探索", "世界観"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/0/04/Hollow_Knight_first_cover_art.webp"
+  },
+  {
+    "id": 44,
+    "title": "Hades",
+    "platforms": ["Switch", "PS5", "PC", "Xbox"],
+    "release_date": "2020-09-17",
+    "developer": "Supergiant Games",
+    "country": "海外",
+    "genre": "アクション",
+    "description": "ギリシャ神話を題材にしたローグライクアクション。死に戻るたびにストーリーが進み、キャラクターとの会話が変化する。",
+    "tags": {
+      "genre": ["アクション", "ローグライク"],
+      "preference": ["ハイスピード", "ストーリー重視", "リプレイ性"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/c/cc/Hades_cover_art.jpg"
+  },
+  {
+    "id": 45,
+    "title": "Slay the Spire",
+    "platforms": ["PC", "Switch", "PS4", "Mobile"],
+    "release_date": "2019-01-23",
+    "developer": "MegaCrit",
+    "country": "海外",
+    "genre": "カード",
+    "description": "カードゲームとローグライクを融合させた傑作。塔を登りながらデッキを構築し、強力な敵を倒していく戦略性が中毒になる。",
+    "tags": {
+      "genre": ["カード", "ローグライク"],
+      "preference": ["戦略性", "一人用", "やり込み"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/2/25/Slay_the_Spire_cover.jpg"
+  },
+  {
+    "id": 46,
+    "title": "Vampire Survivors",
+    "platforms": ["PC", "Switch", "Xbox", "Mobile"],
+    "release_date": "2022-10-20",
+    "developer": "poncle",
+    "country": "海外",
+    "genre": "アクション",
+    "description": "迫りくる大量の敵をなぎ倒し30分間生き残るシンプルかつ中毒性の高いゲーム。自動攻撃と移動のみの簡単操作。",
+    "tags": {
+      "genre": ["アクション", "ローグライク"],
+      "preference": ["カジュアル", "爽快感", "ドット絵"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/8/84/Vampire_Survivors_key_art.jpg"
+  },
+  {
+    "id": 47,
+    "title": "Sid Meier's Civilization VI",
+    "platforms": ["PC", "Switch", "PS4", "Mobile"],
+    "release_date": "2016-10-21",
+    "developer": "Firaxis Games",
+    "country": "海外",
+    "genre": "ストラテジー",
+    "description": "歴史上の指導者となり、文明を石器時代から宇宙開発時代まで発展させるストラテジー。「あと1ターン」が止まらない。",
+    "tags": {
+      "genre": ["ストラテジー", "シミュレーション"],
+      "preference": ["戦略性", "じっくり", "歴史"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/3/3b/Civilization_VI_cover_art.jpg"
+  },
+  {
+    "id": 48,
+    "title": "Cities: Skylines",
+    "platforms": ["PC", "PS4", "Switch", "Xbox"],
+    "release_date": "2015-03-10",
+    "developer": "Colossal Order",
+    "country": "海外",
+    "genre": "シミュレーション",
+    "description": "本格的な都市開発シミュレーション。道路を引き、区画を整理し、渋滞対策やインフラ整備を行って理想の都市を作る。",
+    "tags": {
+      "genre": ["シミュレーション"],
+      "preference": ["クリエイティブ", "じっくり", "経営"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/6/67/Cities_Skylines_cover_art.jpg"
+  },
+  {
+    "id": 49,
+    "title": "The Sims 4",
+    "platforms": ["PC", "PS4", "Xbox"],
+    "release_date": "2014-09-02",
+    "developer": "Maxis",
+    "country": "海外",
+    "genre": "シミュレーション",
+    "description": "人生シミュレーションゲーム。シム（住人）を作成し、家を建て、仕事や恋愛など人生の様々なドラマを体験させる。",
+    "tags": {
+      "genre": ["シミュレーション"],
+      "preference": ["クリエイティブ", "カジュアル", "自由度高め"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/7/7f/Sims_4_Boxart.png"
+  },
+  {
+    "id": 50,
+    "title": "あつまれ どうぶつの森",
+    "platforms": ["Nintendo Switch"],
+    "release_date": "2020-03-20",
+    "developer": "Nintendo EPD",
+    "country": "日本",
+    "genre": "シミュレーション",
+    "description": "無人島に移住し、どうぶつたちと気ままなスローライフを送る。家具を作ったり島をクリエイトしたり楽しみ方は無限大。",
+    "tags": {
+      "genre": ["シミュレーション"],
+      "preference": ["癒やし", "クリエイティブ", "カジュアル"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/1/1f/Animal_Crossing_New_Horizons.jpg"
+  },
+  {
+    "id": 51,
+    "title": "桃太郎電鉄 ～昭和 平成 令和も定番！～",
+    "platforms": ["Nintendo Switch"],
+    "release_date": "2020-11-19",
+    "developer": "Konami",
+    "country": "日本",
+    "genre": "ボードゲーム",
+    "description": "鉄道会社の社長となり、日本全国を巡って物件を買い集め、総資産日本一を目指す国民的ボードゲーム。",
+    "tags": {
+      "genre": ["ボードゲーム", "パーティー"],
+      "preference": ["対戦", "カジュアル", "ファミリー"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/ja/e/ed/Momotetsu_Teiban.jpg"
+  },
+  {
+    "id": 52,
+    "title": "PowerWash Simulator",
+    "platforms": ["PC", "PS5", "Switch", "Xbox"],
+    "release_date": "2022-07-14",
+    "developer": "FuturLab",
+    "country": "海外",
+    "genre": "シミュレーション",
+    "description": "高圧洗浄機でひたすら汚れを落とすだけのゲーム。単純作業だが、綺麗になっていく過程に得も言われぬ癒やしがある。",
+    "tags": {
+      "genre": ["シミュレーション"],
+      "preference": ["癒やし", "カジュアル", "一人用"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/e/e0/PowerWash_Simulator_Key_Art.png"
+  },
+  {
+    "id": 53,
+    "title": "スイカゲーム",
+    "platforms": ["Switch", "Mobile"],
+    "release_date": "2021-12-09",
+    "developer": "Aladdin X",
+    "country": "日本",
+    "genre": "パズル",
+    "description": "フルーツを落として同じ種類をぶつけ、進化させていくパズルゲーム。単純だが物理演算の挙動が予測不能でハマる人が続出。",
+    "tags": {
+      "genre": ["パズル"],
+      "preference": ["カジュアル", "中毒性", "一人用"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/ja/2/23/Suika_Game.jpg"
+  },
+  {
+    "id": 54,
+    "title": "Tetris Effect: Connected",
+    "platforms": ["PS4", "PS5", "PC", "Xbox", "Switch"],
+    "release_date": "2018-11-09",
+    "developer": "Monstars Inc.",
+    "country": "日本",
+    "genre": "パズル",
+    "description": "音楽、映像、振動がシンクロする、これまでにない没入感を体験できるテトリス。プレイするだけで癒やされるような体験。",
+    "tags": {
+      "genre": ["パズル"],
+      "preference": ["癒やし", "音楽", "美麗な演出"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/2/2d/Tetris_Effect_cover.jpg"
+  },
+  {
+    "id": 55,
+    "title": "ぷよぷよテトリス2",
+    "platforms": ["PS5", "Switch", "Xbox", "PC"],
+    "release_date": "2020-12-10",
+    "developer": "Sonic Team",
+    "country": "日本",
+    "genre": "パズル",
+    "description": "二大落ち物パズル「ぷよぷよ」と「テトリス」が対決。ルールを混ぜて遊ぶことも可能で、パーティーゲームとして優秀。",
+    "tags": {
+      "genre": ["パズル", "対戦"],
+      "preference": ["カジュアル", "対戦", "ファミリー"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/f/f9/Puyo_Puyo_Tetris_2_cover_art.jpg"
+  },
+  {
+    "id": 56,
+    "title": "鉄拳8",
+    "platforms": ["PS5", "Xbox", "PC"],
+    "release_date": "2024-01-26",
+    "developer": "Bandai Namco Studios",
+    "country": "日本",
+    "genre": "格闘",
+    "description": "3D対戦格闘ゲームの最新作。攻撃的な新システム「ヒート」により、駆け引きのアグレッシブさが大幅に増した。",
+    "tags": {
+      "genre": ["格闘", "アクション"],
+      "preference": ["対戦", "競技性高い", "高グラフィック"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/1/17/Tekken_8_cover_art.jpg"
+  },
+  {
+    "id": 57,
+    "title": "GUILTY GEAR -STRIVE-",
+    "platforms": ["PS5", "PS4", "Xbox", "PC"],
+    "release_date": "2021-06-11",
+    "developer": "Arc System Works",
+    "country": "日本",
+    "genre": "格闘",
+    "description": "アニメのような美麗なグラフィックで戦う2D格闘ゲーム。ロックなBGMと派手な演出が特徴。",
+    "tags": {
+      "genre": ["格闘", "アクション"],
+      "preference": ["対戦", "アニメ調", "BGMが良い"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/4/4c/Guilty_Gear_Strive_cover_art.jpg"
+  },
+  {
+    "id": 58,
+    "title": "GRANBLUE FANTASY: Relink",
+    "platforms": ["PS5", "PS4", "PC"],
+    "release_date": "2024-02-01",
+    "developer": "Cygames",
+    "country": "日本",
+    "genre": "アクション",
+    "description": "人気スマホRPGのアクションRPG化。空の世界を舞台に、4人パーティで連携しながら巨大な星晶獣と戦う。",
+    "tags": {
+      "genre": ["アクション", "RPG"],
+      "preference": ["協力プレイ", "アニメ調", "爽快感"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/1/15/Granblue_Fantasy_Relink_cover_art.jpg"
+  },
+  {
+    "id": 59,
+    "title": "ARMORED CORE VI FIRES OF RUBICON",
+    "platforms": ["PS5", "PS4", "Xbox", "PC"],
+    "release_date": "2023-08-25",
+    "developer": "FromSoftware",
+    "country": "日本",
+    "genre": "アクション",
+    "description": "自分だけのメカを組み上げて戦うアクション。立体的で高速な戦闘と、試行錯誤が必要なアセンブル（機体構築）が熱い。",
+    "tags": {
+      "genre": ["アクション", "ロボット"],
+      "preference": ["高難易度", "カスタマイズ", "SF"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/4/47/Armored_Core_VI_Fires_of_Rubicon_cover_art.jpg"
+  },
+  {
+    "id": 60,
+    "title": "SEKIRO: SHADOWS DIE TWICE",
+    "platforms": ["PS4", "Xbox", "PC"],
+    "release_date": "2019-03-22",
+    "developer": "FromSoftware",
+    "country": "日本",
+    "genre": "アクション",
+    "description": "戦国時代末期を舞台にした和風アクション。剣戟の弾き合い（チャンバラ）を中心とした、緊張感あふれる戦闘が極めて高評価。",
+    "tags": {
+      "genre": ["アクション", "アドベンチャー"],
+      "preference": ["高難易度", "和風", "一人用"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/6/6e/Sekiro_art.jpg"
+  },
+  {
+    "id": 61,
+    "title": "Detroit: Become Human",
+    "platforms": ["PS4", "PC"],
+    "release_date": "2018-05-25",
+    "developer": "Quantic Dream",
+    "country": "海外",
+    "genre": "アドベンチャー",
+    "description": "アンドロイドが自我を持った近未来を描くアドベンチャー。プレイヤーの選択が物語を無数に分岐させ、運命を大きく変える。",
+    "tags": {
+      "genre": ["アドベンチャー"],
+      "preference": ["ストーリー重視", "マルチエンディング", "SF"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/b/b5/Detroit_Become_Human_art.jpg"
+  },
+  {
+    "id": 62,
+    "title": "Life is Strange",
+    "platforms": ["PC", "PS4", "Switch", "Xbox", "Mobile"],
+    "release_date": "2015-01-30",
+    "developer": "Dontnod Entertainment",
+    "country": "海外",
+    "genre": "アドベンチャー",
+    "description": "時間を巻き戻す能力を手に入れた女子高生の物語。青春の悩みやミステリーが絡み合い、切ないストーリーが展開される。",
+    "tags": {
+      "genre": ["アドベンチャー"],
+      "preference": ["ストーリー重視", "感動", "学園"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/7/77/Life_is_Strange_cover_art.png"
+  },
+  {
+    "id": 63,
+    "title": "逆転裁判123 成歩堂セレクション",
+    "platforms": ["Switch", "PS4", "Xbox", "PC"],
+    "release_date": "2014-04-17",
+    "developer": "Capcom",
+    "country": "日本",
+    "genre": "アドベンチャー",
+    "description": "弁護士となって無実の依頼人を救う法廷バトルアドベンチャー。矛盾を暴き「異議あり！」と叫ぶ爽快感がたまらない。",
+    "tags": {
+      "genre": ["アドベンチャー", "推理"],
+      "preference": ["ストーリー重視", "謎解き", "コミカル"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/ja/e/e0/Gyakuten_Saiban_123.jpg"
+  },
+  {
+    "id": 64,
+    "title": "ダンガンロンパ1・2 Reload",
+    "platforms": ["PS4", "Switch", "PC"],
+    "release_date": "2013-10-10",
+    "developer": "Spike Chunsoft",
+    "country": "日本",
+    "genre": "アドベンチャー",
+    "description": "超高校級の生徒たちがコロシアイ生活を強いられるハイスピード推理アクション。予測不能なストーリー展開が魅力。",
+    "tags": {
+      "genre": ["アドベンチャー", "推理"],
+      "preference": ["ストーリー重視", "ダーク", "ミステリー"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/6/6a/Danganronpa_1%E3%83%BB2_Reload_Cover_Art.jpg"
+  },
+  {
+    "id": 65,
+    "title": "十三機兵防衛圏",
+    "platforms": ["PS4", "Switch"],
+    "release_date": "2019-11-28",
+    "developer": "Vanillaware",
+    "country": "日本",
+    "genre": "アドベンチャー",
+    "description": "13人の少年少女が機兵に乗って戦うSF群像劇。複雑に絡み合う物語の構成と、美しい2Dグラフィックが絶賛された。",
+    "tags": {
+      "genre": ["アドベンチャー", "シミュレーション"],
+      "preference": ["ストーリー重視", "SF", "群像劇"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/c/c2/13_Sentinels_Aegis_Rim_cover_art.jpg"
+  },
+  {
+    "id": 66,
+    "title": "ペルソナ4 ザ・ゴールデン",
+    "platforms": ["PC", "Switch", "PS4", "Xbox"],
+    "release_date": "2012-06-14",
+    "developer": "Atlus",
+    "country": "日本",
+    "genre": "RPG",
+    "description": "田舎町で起こる連続殺人事件の謎を追う青春RPG。仲間との絆を深める日常パートと、ダンジョン探索のバランスが秀逸。",
+    "tags": {
+      "genre": ["RPG"],
+      "preference": ["ストーリー重視", "青春", "ミステリー"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/1/10/Shin_Megami_Tensei_Persona_4.jpg"
+  },
+  {
+    "id": 67,
+    "title": "KINGDOM HEARTS III",
+    "platforms": ["PS4", "Xbox", "PC", "Switch"],
+    "release_date": "2019-01-25",
+    "developer": "Square Enix",
+    "country": "日本",
+    "genre": "アクション",
+    "description": "ディズニーの世界を冒険するアクションRPG。「ダークシーカー編」の完結作。ディズニー映画のような映像美で冒険できる。",
+    "tags": {
+      "genre": ["アクション", "RPG"],
+      "preference": ["ストーリー重視", "ファンタジー", "爽快感"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/6/62/Kingdom_Hearts_III_box_art.jpg"
+  },
+  {
+    "id": 68,
+    "title": "FINAL FANTASY VII REMAKE",
+    "platforms": ["PS5", "PS4", "PC"],
+    "release_date": "2020-04-10",
+    "developer": "Square Enix",
+    "country": "日本",
+    "genre": "RPG",
+    "description": "不朽の名作FF7を現代の技術で蘇らせたリメイク作。ミッドガル脱出までを、圧倒的なグラフィックと新システムで描く。",
+    "tags": {
+      "genre": ["RPG", "アクション"],
+      "preference": ["ストーリー重視", "高グラフィック", "リニア"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/c/ce/Final_Fantasy_VII_Remake_cover_art.jpg"
+  },
+  {
+    "id": 69,
+    "title": "ゼノブレイド3",
+    "platforms": ["Nintendo Switch"],
+    "release_date": "2022-07-29",
+    "developer": "Monolith Soft",
+    "country": "日本",
+    "genre": "RPG",
+    "description": "敵対する2つの国から6人の兵士が手を取り合い、世界の謎に迫るRPG。広大なフィールド探索と熱い物語が特徴。",
+    "tags": {
+      "genre": ["RPG"],
+      "preference": ["ストーリー重視", "探索", "ボリューム大"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/5/54/Xenoblade_Chronicles_3_cover_art.jpg"
+  },
+  {
+    "id": 70,
+    "title": "ファイアーエムブレム エンゲージ",
+    "platforms": ["Nintendo Switch"],
+    "release_date": "2023-01-20",
+    "developer": "Intelligent Systems",
+    "country": "日本",
+    "genre": "シミュレーションRPG",
+    "description": "指輪に宿る過去の英雄「紋章士」と共に戦うシミュレーションRPG。シリーズの中でも特に戦略性の高いバトルが楽しめる。",
+    "tags": {
+      "genre": ["シミュレーションRPG"],
+      "preference": ["戦略性", "キャラゲー", "ファンタジー"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/e/ee/Fire_Emblem_Engage.jpg"
+  },
+  {
+    "id": 71,
+    "title": "ピクミン4",
+    "platforms": ["Nintendo Switch"],
+    "release_date": "2023-07-21",
+    "developer": "Nintendo EPD",
+    "country": "日本",
+    "genre": "アクション",
+    "description": "不思議な生き物ピクミンに指示を出して探索する「ダンドリ」アクション。宇宙犬オッチンという相棒も加わり探索が快適に。",
+    "tags": {
+      "genre": ["アクション", "ストラテジー"],
+      "preference": ["癒やし", "思考パズル", "探索"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/a/a4/Pikmin_4_cover_art.jpg"
+  },
+  {
+    "id": 72,
+    "title": "星のカービィ ディスカバリー",
+    "platforms": ["Nintendo Switch"],
+    "release_date": "2022-03-25",
+    "developer": "HAL Laboratory",
+    "country": "日本",
+    "genre": "アクション",
+    "description": "シリーズ初の3Dアクション。廃墟となった文明都市を舞台に、車や自販機をほおばる「ヘンケイ」能力で冒険する。",
+    "tags": {
+      "genre": ["アクション"],
+      "preference": ["癒やし", "カジュアル", "探索"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/0/06/Kirby_and_the_Forgotten_Land_box_art.jpg"
+  },
+  {
+    "id": 73,
+    "title": "ドンキーコング リターンズ",
+    "platforms": ["Wii", "3DS", "Switch"],
+    "release_date": "2010-12-09",
+    "developer": "Retro Studios",
+    "country": "日本",
+    "genre": "アクション",
+    "description": "ドンキーコングのパワフルなアクションが楽しめる2D横スクロール。シンプルだが歯ごたえのある難易度が特徴。",
+    "tags": {
+      "genre": ["アクション"],
+      "preference": ["高難易度", "一人用", "王道"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/3/30/Donkey_Kong_Country_Returns.jpg"
+  },
+  {
+    "id": 74,
+    "title": "メトロイド ドレッド",
+    "platforms": ["Nintendo Switch"],
+    "release_date": "2021-10-08",
+    "developer": "MercurySteam",
+    "country": "日本",
+    "genre": "アクション",
+    "description": "約19年ぶりの2Dメトロイド完全新作。最強の銀河戦士サムスが、無敵のロボットE.M.M.I.に追われる恐怖と探索の融合。",
+    "tags": {
+      "genre": ["アクション", "メトロイドヴァニア"],
+      "preference": ["探索", "スリル", "高難易度"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/4/46/Metroid_Dread_Box_Art.jpg"
+  },
+  {
+    "id": 75,
+    "title": "スーパーマリオブラザーズ ワンダー",
+    "platforms": ["Nintendo Switch"],
+    "release_date": "2023-10-20",
+    "developer": "Nintendo EPD",
+    "country": "日本",
+    "genre": "アクション",
+    "description": "約11年ぶりの横スクロールマリオ完全新作。「ワンダーフラワー」に触れるとコースが劇的に変化する驚きのギミックが満載。",
+    "tags": {
+      "genre": ["アクション"],
+      "preference": ["カジュアル", "協力プレイ", "王道"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/6/63/Super_Mario_Bros._Wonder_cover_art.jpg"
+  },
+  {
+    "id": 76,
+    "title": "It Takes Two",
+    "platforms": ["PS5", "PS4", "Switch", "Xbox", "PC"],
+    "release_date": "2021-03-26",
+    "developer": "Hazelight Studios",
+    "country": "海外",
+    "genre": "アクション",
+    "description": "2人協力プレイ専用のアクションアドベンチャー。人形になった夫婦が元の姿に戻るため冒険する。ギミックの多彩さが凄い。",
+    "tags": {
+      "genre": ["アクション", "アドベンチャー"],
+      "preference": ["協力プレイ", "パズル", "ストーリー重視"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/a/aa/It_Takes_Two_cover_art.png"
+  },
+  {
+    "id": 77,
+    "title": "Cuphead",
+    "platforms": ["PC", "Xbox", "Switch", "PS4"],
+    "release_date": "2017-09-29",
+    "developer": "Studio MDHR",
+    "country": "海外",
+    "genre": "アクション",
+    "description": "1930年代のアニメーションを完璧に再現した手書きの2Dアクション。見た目とは裏腹に、極めて難易度の高いボス戦が続く。",
+    "tags": {
+      "genre": ["アクション"],
+      "preference": ["高難易度", "レトロ", "協力プレイ"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/0/05/Cuphead_cover_art.png"
+  },
+  {
+    "id": 78,
+    "title": "Celeste",
+    "platforms": ["PC", "Switch", "PS4", "Xbox"],
+    "release_date": "2018-01-25",
+    "developer": "Maddy Makes Games",
+    "country": "海外",
+    "genre": "アクション",
+    "description": "セレステ山の頂上を目指す高難易度2Dアクション。絶妙な操作性とレベルデザイン、自己克服を描く物語が高い評価を得た。",
+    "tags": {
+      "genre": ["アクション", "インディー"],
+      "preference": ["高難易度", "ストーリー重視", "ドット絵"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/9/97/Celeste_box_art.jpg"
+  },
+  {
+    "id": 79,
+    "title": "Portal 2",
+    "platforms": ["PC", "Switch", "Xbox", "PS3"],
+    "release_date": "2011-04-18",
+    "developer": "Valve",
+    "country": "海外",
+    "genre": "パズル",
+    "description": "ポータルガンで空間をつなげて謎を解く一人称パズル。ブラックユーモアあふれるストーリーと、協力プレイモードも秀逸。",
+    "tags": {
+      "genre": ["パズル", "FPS"],
+      "preference": ["思考パズル", "ユーモア", "協力プレイ"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/f/f9/Portal2cover.jpg"
+  },
+  {
+    "id": 80,
+    "title": "Half-Life: Alyx",
+    "platforms": ["PC(VR)"],
+    "release_date": "2020-03-23",
+    "developer": "Valve",
+    "country": "海外",
+    "genre": "FPS",
+    "description": "VRゲームの最高峰と称されるFPS。VRならではの没入感で描かれる戦闘やパズル、世界観の密度は他の追随を許さない。",
+    "tags": {
+      "genre": ["FPS", "VR"],
+      "preference": ["没入感", "ストーリー重視", "ホラー要素あり"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/e/ed/Half-Life_Alyx_Cover_Art.jpg"
+  },
+  {
+    "id": 81,
+    "title": "Baldur's Gate 3",
+    "platforms": ["PC", "PS5", "Xbox"],
+    "release_date": "2023-08-03",
+    "developer": "Larian Studios",
+    "country": "海外",
+    "genre": "RPG",
+    "description": "D&Dの世界観をベースにしたRPG。自由度が恐ろしく高く、会話の選択や攻略ルートが無数に存在し、自分だけの物語を作れる。",
+    "tags": {
+      "genre": ["RPG"],
+      "preference": ["自由度高め", "ストーリー重視", "戦略性"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/1/12/Baldur%27s_Gate_3_cover_art.jpg"
+  },
+  {
+    "id": 82,
+    "title": "Palworld / パルワールド",
+    "platforms": ["PC", "Xbox", "PS5"],
+    "release_date": "2024-01-19",
+    "developer": "Pocket Pair",
+    "country": "日本",
+    "genre": "サバイバル",
+    "description": "不思議な生物「パル」と共に生活するサバイバルクラフト。パルを捕獲して戦わせたり、労働させたりできる自由さが話題。",
+    "tags": {
+      "genre": ["サバイバル", "アクション", "RPG"],
+      "preference": ["収集", "クラフト", "協力プレイ"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/1/18/Palworld_cover_art.jpg"
+  },
+  {
+    "id": 83,
+    "title": "Hogwarts Legacy",
+    "platforms": ["PS5", "PS4", "Switch", "Xbox", "PC"],
+    "release_date": "2023-02-10",
+    "developer": "Avalanche Software",
+    "country": "海外",
+    "genre": "RPG",
+    "description": "ハリー・ポッターの世界である1800年代のホグワーツを舞台にしたオープンワールドRPG。魔法界の没入感が凄まじい。",
+    "tags": {
+      "genre": ["RPG", "アクション"],
+      "preference": ["ファンタジー", "探索", "映画の世界"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/7/7c/Hogwarts_Legacy_cover.jpg"
+  },
+  {
+    "id": 84,
+    "title": "Star Wars Jedi: Survivor",
+    "platforms": ["PS5", "Xbox", "PC"],
+    "release_date": "2023-04-28",
+    "developer": "Respawn Entertainment",
+    "country": "海外",
+    "genre": "アクション",
+    "description": "ジェダイの生き残りカル・ケスティスの物語。ライトセーバーとフォースを駆使したアクションが進化し、探索要素も強化された。",
+    "tags": {
+      "genre": ["アクション", "アドベンチャー"],
+      "preference": ["SF", "ストーリー重視", "探索"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/6/63/Star_Wars_Jedi_Survivor_cover.jpg"
+  },
+  {
+    "id": 85,
+    "title": "Hi-Fi RUSH",
+    "platforms": ["Xbox", "PC", "PS5"],
+    "release_date": "2023-01-26",
+    "developer": "Tango Gameworks",
+    "country": "日本",
+    "genre": "アクション",
+    "description": "世界すべてがビートに乗って動くリズムアクション。攻撃や回避をリズムに合わせることで爽快なコンボが決まる。",
+    "tags": {
+      "genre": ["アクション", "リズム"],
+      "preference": ["爽快感", "音楽", "アニメ調"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/2/23/Hi-Fi_Rush_cover_art.jpg"
+  },
+  {
+    "id": 86,
+    "title": "Sea of Stars",
+    "platforms": ["Switch", "PS5", "PS4", "Xbox", "PC"],
+    "release_date": "2023-08-29",
+    "developer": "Sabotage Studio",
+    "country": "海外",
+    "genre": "RPG",
+    "description": "日本の90年代RPGに強く影響を受けたインディーRPG。美しいドット絵、王道の物語、ターン制バトルへの敬意が詰まっている。",
+    "tags": {
+      "genre": ["RPG"],
+      "preference": ["王道", "ドット絵", "レトロ"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/e/e6/Sea_of_Stars_cover_art.jpg"
+  },
+  {
+    "id": 87,
+    "title": "オクトパストラベラーII",
+    "platforms": ["Switch", "PS5", "PS4", "PC"],
+    "release_date": "2023-02-24",
+    "developer": "Square Enix",
+    "country": "日本",
+    "genre": "RPG",
+    "description": "8人の主人公が織りなす旅の物語。「HD-2D」グラフィックが進化し、より美しくなった世界を自由に冒険できる。",
+    "tags": {
+      "genre": ["RPG"],
+      "preference": ["ストーリー重視", "ドット絵", "自由度高め"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/9/95/Octopath_Traveler_II_cover_art.jpg"
+  },
+  {
+    "id": 88,
+    "title": "TRIANGLE STRATEGY",
+    "platforms": ["Switch", "PC"],
+    "release_date": "2022-03-04",
+    "developer": "Square Enix",
+    "country": "日本",
+    "genre": "シミュレーションRPG",
+    "description": "正義と信念が問われるタクティクスRPG。プレイヤーの選択が「信念の天秤」に影響し、ストーリーが大きく分岐する。",
+    "tags": {
+      "genre": ["シミュレーションRPG"],
+      "preference": ["戦略性", "ストーリー重視", "マルチエンディング"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/0/0f/Triangle_Strategy_cover_art.jpg"
+  },
+  {
+    "id": 89,
+    "title": "タクティクスオウガ リボーン",
+    "platforms": ["Switch", "PS5", "PS4", "PC"],
+    "release_date": "2022-11-11",
+    "developer": "Square Enix",
+    "country": "日本",
+    "genre": "シミュレーションRPG",
+    "description": "シミュレーションRPGの金字塔のリメイク。民族紛争を描いた重厚なストーリーと、深みのある育成システムは今も色褪せない。",
+    "tags": {
+      "genre": ["シミュレーションRPG"],
+      "preference": ["戦略性", "ダーク", "ストーリー重視"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/6/66/Tactics_Ogre_Reborn_cover_art.jpg"
+  },
+  {
+    "id": 90,
+    "title": "THE KING OF FIGHTERS XV",
+    "platforms": ["PS5", "PS4", "Xbox", "PC"],
+    "release_date": "2022-02-17",
+    "developer": "SNK",
+    "country": "日本",
+    "genre": "格闘",
+    "description": "3on3チームバトルのKOFシリーズ最新作。歴代人気キャラクターが集結し、ド派手な必殺技の応酬が楽しめる。",
+    "tags": {
+      "genre": ["格闘", "アクション"],
+      "preference": ["対戦", "競技性高い", "キャラゲー"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/9/90/The_King_of_Fighters_XV_box_art.jpg"
+  },
+  {
+    "id": 91,
+    "title": "グランツーリスモ7",
+    "platforms": ["PS5", "PS4"],
+    "release_date": "2022-03-04",
+    "developer": "Polyphony Digital",
+    "country": "日本",
+    "genre": "レース",
+    "description": "「リアルドライビングシミュレーター」シリーズ25周年記念作品。車の挙動、天候変化、エンジン音など再現度が極まっている。",
+    "tags": {
+      "genre": ["レース", "シミュレーション"],
+      "preference": ["リアル", "車好き", "高グラフィック"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/0/07/Gran_Turismo_7_cover_art.jpg"
+  },
+  {
+    "id": 92,
+    "title": "Forza Horizon 5",
+    "platforms": ["Xbox", "PC"],
+    "release_date": "2021-11-09",
+    "developer": "Playground Games",
+    "country": "海外",
+    "genre": "レース",
+    "description": "メキシコの広大なオープンワールドを高級車で爆走するレースゲーム。シミュレーションとアーケードのバランスが絶妙。",
+    "tags": {
+      "genre": ["レース", "オープンワールド"],
+      "preference": ["爽快感", "高グラフィック", "自由度高め"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/8/86/Forza_Horizon_5_cover_art.jpg"
+  },
+  {
+    "id": 93,
+    "title": "Microsoft Flight Simulator",
+    "platforms": ["PC", "Xbox"],
+    "release_date": "2020-08-18",
+    "developer": "Asobo Studio",
+    "country": "海外",
+    "genre": "シミュレーション",
+    "description": "地球全土を舞台にしたフライトシミュレーター。衛星データ等を活用し、実際の地形や気象をリアルタイムで再現している。",
+    "tags": {
+      "genre": ["シミュレーション"],
+      "preference": ["リアル", "探索", "癒やし"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/c/c3/Microsoft_Flight_Simulator_2020_cover_art.jpg"
+  },
+  {
+    "id": 94,
+    "title": "Rusty Lake: Roots",
+    "platforms": ["PC", "Mobile"],
+    "release_date": "2016-10-20",
+    "developer": "Rusty Lake",
+    "country": "海外",
+    "genre": "アドベンチャー",
+    "description": "シュールで不気味な世界観が特徴のポイント＆クリックアドベンチャー。ある家系の数世代にわたる奇妙な運命を描く。",
+    "tags": {
+      "genre": ["アドベンチャー", "パズル"],
+      "preference": ["ダーク", "ミステリー", "一人用"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/1/18/Rusty_Lake_Roots.jpg"
+  },
+  {
+    "id": 95,
+    "title": "Outer Wilds",
+    "platforms": ["PC", "PS4", "Xbox", "Switch"],
+    "release_date": "2019-05-28",
+    "developer": "Mobius Digital",
+    "country": "海外",
+    "genre": "アドベンチャー",
+    "description": "22分後に超新星爆発で滅びる太陽系を舞台にした探索アドベンチャー。タイムループを繰り返し、宇宙の謎を解き明かす。",
+    "tags": {
+      "genre": ["アドベンチャー"],
+      "preference": ["探索", "ミステリー", "死にゲー"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/f/f6/Outer_Wilds_Steam_artwork.jpg"
+  },
+  {
+    "id": 96,
+    "title": "TUNIC",
+    "platforms": ["PC", "Xbox", "PS5", "Switch"],
+    "release_date": "2022-03-16",
+    "developer": "Andrew Shouldice",
+    "country": "海外",
+    "genre": "アクション",
+    "description": "子ギツネが冒険するアクション。ゲーム内の説明書を集めながら、隠されたルールや謎を解読していく体験が素晴らしい。",
+    "tags": {
+      "genre": ["アクション", "アドベンチャー"],
+      "preference": ["謎解き", "探索", "可愛い"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/c/c2/Tunic_cover_art.jpg"
+  },
+  {
+    "id": 97,
+    "title": "Cult of the Lamb",
+    "platforms": ["PC", "Switch", "PS5", "Xbox"],
+    "release_date": "2022-08-11",
+    "developer": "Massive Monster",
+    "country": "海外",
+    "genre": "アクション",
+    "description": "カルト教団の教祖となり、信者を増やして拠点を大きくする経営要素と、ダンジョン探索アクションが融合したゲーム。",
+    "tags": {
+      "genre": ["アクション", "シミュレーション"],
+      "preference": ["ブラックユーモア", "経営", "可愛い"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/a/a2/Cult_of_the_Lamb_key_art.jpg"
+  },
+  {
+    "id": 98,
+    "title": "Inscryption",
+    "platforms": ["PC", "PS5", "Switch", "Xbox"],
+    "release_date": "2021-10-19",
+    "developer": "Daniel Mullins Games",
+    "country": "海外",
+    "genre": "カード",
+    "description": "デッキ構築型ローグライクに、脱出ゲームやサイコホラーの要素を混ぜた異色作。ネタバレ厳禁の驚きの展開が待っている。",
+    "tags": {
+      "genre": ["カード", "ホラー", "パズル"],
+      "preference": ["ストーリー重視", "ダーク", "ユニーク"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/c/c7/Inscryption_cover.jpg"
+  },
+  {
+    "id": 99,
+    "title": "8番出口",
+    "platforms": ["PC", "Switch"],
+    "release_date": "2023-11-29",
+    "developer": "Team Exit8",
+    "country": "日本",
+    "genre": "アドベンチャー",
+    "description": "無限に続く地下通路から脱出する「異変探し」ゲーム。わずかな異変を見逃さずに進むか戻るかを判断する観察力が試される。",
+    "tags": {
+      "genre": ["アドベンチャー", "シミュレーション"],
+      "preference": ["ホラー", "短時間", "ミステリー"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/ja/e/e9/The_Exit_8_header.jpg"
+  },
+  {
+    "id": 100,
+    "title": "Goat Simulator 3",
+    "platforms": ["PC", "PS5", "Xbox", "Mobile"],
+    "release_date": "2022-11-17",
+    "developer": "Coffee Stain Studios",
+    "country": "海外",
+    "genre": "アクション",
+    "description": "ヤギになって街を破壊し尽くすカオスな物理演算アクション。バグすらも面白さとして許容されるおバカゲーの最高峰。",
+    "tags": {
+      "genre": ["アクション", "シミュレーション"],
+      "preference": ["コメディ", "自由度高め", "マルチプレイ"]
+    },
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/0/05/Goat_Simulator_3_cover_art.jpg"
+  }
+]

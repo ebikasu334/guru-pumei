@@ -1,0 +1,108 @@
+@startuml Game-Shiru Architecture
+
+title Game-Shiru 3-Tier Architecture
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 14
+
+' Internet and User Layer
+rectangle "User Devices" as user {
+  rectangle "Web Browser" as browser
+  rectangle "Mobile App" as mobile
+}
+
+cloud "Internet" as internet {
+  rectangle "CDN" as cdn
+  rectangle "DNS" as dns
+  rectangle "Load Balancer" as lb
+}
+
+' Web Server Tier
+rectangle "Web Server Tier" as web_tier {
+  rectangle "Web Server 1" as web1
+  rectangle "Web Server 2" as web2
+  rectangle "Web Server N" as webN
+
+  rectangle "Static Content" as static
+  rectangle "API Gateway" as api_gw
+}
+
+' Application Server Tier
+rectangle "Application Server Tier" as app_tier {
+  rectangle "App Server 1" as app1
+  rectangle "App Server 2" as app2
+  rectangle "App Server N" as appN
+
+  rectangle "Game Service" as game_service
+  rectangle "Recommendation Engine" as rec_engine
+  rectangle "Search Service" as search_service
+  rectangle "Cache (Redis)" as cache
+}
+
+' Database Server Tier
+rectangle "Database Server Tier" as db_tier {
+  rectangle "Primary Database" as primary_db
+  rectangle "Replica Database" as replica_db
+  rectangle "Backup Storage" as backup
+
+  rectangle "SQLite Database" as sqlite {
+    rectangle "Games Table" as games_tbl
+    rectangle "Platforms Table" as platforms_tbl
+    rectangle "Genres Table" as genres_tbl
+    rectangle "Preferences Table" as preferences_tbl
+    rectangle "Developers Table" as developers_tbl
+  }
+}
+
+' Connections
+user --> internet
+internet --> web_tier
+web_tier --> app_tier
+app_tier --> db_tier
+
+' Internal connections
+browser --> cdn
+mobile --> cdn
+cdn --> lb
+lb --> web1
+lb --> web2
+lb --> webN
+
+web1 --> api_gw
+web2 --> api_gw
+webN --> api_gw
+
+api_gw --> app1
+api_gw --> app2
+api_gw --> appN
+
+app1 --> game_service
+app2 --> game_service
+appN --> game_service
+
+game_service --> rec_engine
+game_service --> search_service
+game_service --> cache
+
+rec_engine --> primary_db
+search_service --> primary_db
+cache --> primary_db
+
+primary_db --> replica_db
+primary_db --> backup
+
+' Legend
+legend right
+  | Architecture Components |
+  ==========================
+  User Devices: Clients
+  Web Tier: Static content & API
+  App Tier: Business logic
+  DB Tier: Data storage
+  Cache: Performance optimization
+  Backup: Disaster recovery
+endlegend
+
+@enduml

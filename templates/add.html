@@ -1,0 +1,303 @@
+{% extends "base.html" %}
+
+{% block title %}ゲームを追加{% endblock %}
+
+{% block content %}
+<div class="form-page">
+    <h1>新しいゲームを追加</h1>
+
+<form method="post" action="{{ url_for('add_game') }}" class="game-form" enctype="multipart/form-data">
+        <div class="form-section">
+            <h2>基本情報</h2>
+
+            <div class="form-group">
+                <label for="title">タイトル</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+
+            <div class="form-group">
+                <label for="release_date">リリース日</label>
+                <input type="date" id="release_date" name="release_date" required>
+            </div>
+
+            <div class="form-group">
+                <label for="description">説明</label>
+                <textarea id="description" name="description" rows="5" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="rating">評価 (0-10)</label>
+                <input type="number" id="rating" name="rating" min="0" max="10" step="0.1">
+            </div>
+
+            <div class="form-group">
+                <label for="price">価格</label>
+                <input type="number" id="price" name="price" min="0" step="0.01">
+            </div>
+
+            <div class="form-group">
+                <label for="image_file">ゲーム画像</label>
+                <input type="file" id="image_file" name="image_file" accept="image/*">
+            </div>
+            <div class="form-group">
+                <label for="image_url">または画像URL</label>
+                <input type="url" id="image_url" name="image_url">
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h2>開発情報</h2>
+
+            <div class="form-group">
+                <label for="developer_name">開発元</label>
+                <input type="text" id="developer_name" name="developer_name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="developer_country">国</label>
+                <select id="developer_country" name="developer_country" required>
+                    <option value="">選択してください</option>
+                    {% for country in filter_options.countries %}
+                        <option value="{{ country }}">{{ country }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="genre">ジャンル</label>
+                <select id="genre" name="genre" required>
+                    <option value="">選択してください</option>
+                    {% for genre in filter_options.genres %}
+                        <option value="{{ genre }}">{{ genre }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h2>プラットフォーム</h2>
+            <div class="checkbox-group">
+                {% for platform in filter_options.platforms %}
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="platforms" value="{{ platform }}">
+                        {{ platform }}
+                    </label>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h2>ジャンルタグ</h2>
+            <div class="checkbox-group">
+                {% for genre in filter_options.genres %}
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="genre_tags" value="{{ genre }}">
+                        {{ genre }}
+                    </label>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h2>プレイスタイル</h2>
+            <div class="checkbox-group">
+                {% for preference in filter_options.preferences %}
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="preference_tags" value="{{ preference }}">
+                        {{ preference }}
+                    </label>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn-primary">ゲームを追加</button>
+            <a href="{{ url_for('index') }}" class="btn-secondary">キャンセル</a>
+        </div>
+    </form>
+</div>
+
+<!-- Image Cropper Modal -->
+<div id="cropper-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-content">
+        <h3>画像をトリミング</h3>
+        <div class="cropper-container">
+            <img id="image-to-crop" src="" alt="Crop Image">
+        </div>
+        <div class="cropper-actions">
+            <button id="crop-save-btn" class="btn-primary">トリミングして保存</button>
+            <button id="crop-cancel-btn" class="btn-secondary">キャンセル</button>
+        </div>
+    </div>
+</div>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Get elements
+    const fileInput = document.getElementById('image_file');
+    const modal = document.getElementById('cropper-modal');
+    const cropImage = document.getElementById('image-to-crop');
+    const saveBtn = document.getElementById('crop-save-btn');
+    const cancelBtn = document.getElementById('crop-cancel-btn');
+
+    let cropper = null;
+
+    // File input change event
+    fileInput.addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        // Check if file is an image
+        if (!file.type.match('image.*')) {
+            alert('画像ファイルを選択してください');
+            return;
+        }
+
+        // Read the file
+        const reader = new FileReader();
+        reader.onload = function(event) {
+            // Set image source
+            cropImage.src = event.target.result;
+
+            // Show modal
+            modal.style.display = 'flex';
+
+            // Initialize cropper
+            if (cropper) {
+                cropper.destroy();
+            }
+            cropper = new Cropper(cropImage, {
+                aspectRatio: 16 / 9,
+                viewMode: 1,
+                autoCropArea: 0.8,
+                responsive: true,
+                guides: true,
+                highlight: true,
+                dragMode: 'move',
+                cropBoxMovable: true,
+                cropBoxResizable: true
+            });
+        };
+        reader.readAsDataURL(file);
+    });
+
+    // Cancel button - enhanced with proper cleanup
+    cancelBtn.addEventListener('click', function() {
+        // Hide the modal
+        modal.style.display = 'none';
+
+        // Destroy cropper instance if it exists
+        if (cropper) {
+            cropper.destroy();
+            cropper = null;
+        }
+
+        // Reset file input to allow selecting the same file again
+        fileInput.value = '';
+
+        console.log('Cropper cancelled and cleaned up');
+    });
+
+    // Save button - final implementation with AJAX submission and visual feedback
+    saveBtn.addEventListener('click', function() {
+        if (!cropper) return;
+
+        // Store original button text and disable button to prevent multiple clicks
+        const originalBtnText = saveBtn.textContent;
+        saveBtn.textContent = '処理中...';
+        saveBtn.disabled = true;
+
+        // Get cropped canvas
+        const canvas = cropper.getCroppedCanvas({
+            maxWidth: 1920,
+            maxHeight: 1080,
+            fillColor: '#fff'
+        });
+
+        if (canvas) {
+            // Convert canvas to blob
+            canvas.toBlob(function(blob) {
+                // Hide modal and clean up
+                modal.style.display = 'none';
+                if (cropper) {
+                    cropper.destroy();
+                    cropper = null;
+                }
+
+                // Create FormData and append all form fields
+                const formData = new FormData();
+
+                // Append the cropped image blob
+                formData.append('image_file', blob, 'cropped-image.jpg');
+
+                // Append all other form fields
+                const form = document.querySelector('form');
+                const formElements = form.elements;
+
+                for (let i = 0; i < formElements.length; i++) {
+                    const element = formElements[i];
+                    const name = element.name;
+
+                    // Skip file input and buttons
+                    if (!name || element.type === 'file' || element.type === 'submit' || element.type === 'button') {
+                        continue;
+                    }
+
+                    // Handle different input types
+                    if (element.type === 'checkbox' || element.type === 'radio') {
+                        if (element.checked) {
+                            formData.append(name, element.value);
+                        }
+                    } else if (element.type === 'select-multiple') {
+                        for (let j = 0; j < element.options.length; j++) {
+                            if (element.options[j].selected) {
+                                formData.append(name, element.options[j].value);
+                            }
+                        }
+                    } else {
+                        formData.append(name, element.value);
+                    }
+                }
+
+                // Send AJAX request to server
+                fetch(form.action, {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json().catch(() => ({}));
+                    } else {
+                        return response.json().then(err => {
+                            throw new Error(err.message || 'サーバーエラー');
+                        }).catch(() => {
+                            throw new Error('サーバーエラー');
+                        });
+                    }
+                })
+                .then(data => {
+                    // Redirect to game detail page on success
+                    const redirectUrl = data.redirect || '/';
+                    window.location.href = redirectUrl;
+                })
+                .catch(error => {
+                    console.error('エラー:', error);
+                    alert('エラーが発生しました: ' + error.message);
+
+                    // Restore button state on error
+                    saveBtn.textContent = originalBtnText;
+                    saveBtn.disabled = false;
+                });
+
+            }, 'image/jpeg', 0.9);
+        } else {
+            // Restore button state if canvas creation failed
+            saveBtn.textContent = originalBtnText;
+            saveBtn.disabled = false;
+            alert('画像の処理中にエラーが発生しました');
+        }
+    });
+});
+</script>
+{% endblock %}

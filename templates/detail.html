@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block title %}{{ game.title }} - 詳細{% endblock %}
+
+{% block content %}
+<div class="detail-page">
+    <div class="detail-header">
+        <div class="detail-image">
+            {% if game.image_url %}
+                <img src="{{ game.image_url }}" alt="{{ game.title }}" onerror="this.src='https://via.placeholder.com/400x300?text=No+Image'">
+            {% else %}
+                <img src="https://via.placeholder.com/400x300?text=No+Image" alt="No Image">
+            {% endif %}
+        </div>
+        <div class="detail-info">
+            <h1 class="detail-title">{{ game.title }}</h1>
+            <div class="detail-meta">
+                <span class="detail-date">{{ game.release_date }}</span>
+                <span class="detail-genre">{{ game.genre }}</span>
+                <span class="detail-country">{{ game.developer_country }}</span>
+            </div>
+            <div class="detail-rating">
+                {% if game.rating %}
+                    <span class="rating-value">{{ "★" * (game.rating | int) }}{{ "☆" * (5 - (game.rating | int)) }}</span>
+                    <span class="rating-text">{{ game.rating }}/5</span>
+                {% else %}
+                    <span class="rating-text">評価なし</span>
+                {% endif %}
+            </div>
+            <div class="detail-price">
+                {% if game.price %}
+                    <span class="price-value">¥{{ "{:,}".format(game.price) }}</span>
+                {% else %}
+                    <span class="price-text">価格情報なし</span>
+                {% endif %}
+            </div>
+            <div class="detail-actions">
+                <a href="{{ url_for('edit_game', game_id=game.game_id) }}" class="btn-primary">編集</a>
+                <form action="{{ url_for('delete_game', game_id=game.game_id) }}" method="post" style="display: inline;">
+                    <button type="submit" class="btn-danger" onclick="return confirm('本当に削除しますか？')">削除</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="detail-content">
+        <div class="detail-section">
+            <h2>ゲーム情報</h2>
+            <div class="detail-description">
+                <p>{{ game.description }}</p>
+            </div>
+        </div>
+
+        <div class="detail-section">
+            <h2>開発情報</h2>
+            <div class="detail-developer">
+                <p><strong>開発元:</strong> {{ game.developer }}</p>
+                <p><strong>国:</strong> {{ game.developer_country }}</p>
+            </div>
+        </div>
+
+        <div class="detail-section">
+            <h2>プラットフォーム</h2>
+            <div class="detail-platforms">
+                {% for platform in game.platforms %}
+                    <span class="platform-tag">{{ platform }}</span>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="detail-section">
+            <h2>ジャンルタグ</h2>
+            <div class="detail-tags">
+                {% for tag in game.genre_tags %}
+                    <span class="tag">{{ tag }}</span>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="detail-section">
+            <h2>プレイスタイル</h2>
+            <div class="detail-tags">
+                {% for tag in game.preference_tags %}
+                    <span class="tag">{{ tag }}</span>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="detail-back">
+        <a href="{{ url_for('index') }}" class="btn-secondary">ゲーム一覧に戻る</a>
+    </div>
+</div>
+{% endblock %}

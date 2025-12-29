@@ -1,0 +1,170 @@
+{% extends "base.html" %}
+
+{% block title %}ゲーム一覧{% endblock %}
+
+{% block content %}
+<div class="page-content">
+    <div class="sidebar">
+        <div class="filter-section">
+            <h2>検索・フィルター</h2>
+
+            <form method="get" action="{{ url_for('index') }}" class="filter-form">
+                <div class="filter-group">
+                    <h3>ジャンル</h3>
+                    {% for genre in filter_options.genres %}
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="genre" value="{{ genre }}"
+                                {% if genre in selected_genres %}checked{% endif %}>
+                            {{ genre }}
+                        </label>
+                    {% endfor %}
+                </div>
+
+                <div class="filter-group">
+                    <h3>プレイスタイル</h3>
+                    {% for preference in filter_options.preferences %}
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="preference" value="{{ preference }}"
+                                {% if preference in selected_preferences %}checked{% endif %}>
+                            {{ preference }}
+                        </label>
+                    {% endfor %}
+                </div>
+
+                <div class="filter-group">
+                    <h3>国</h3>
+                    <select name="country" class="dropdown">
+                        <option value="">すべて</option>
+                        {% for country in filter_options.countries %}
+                            <option value="{{ country }}"
+                                {% if country == selected_country %}selected{% endif %}>
+                                {{ country }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <h3>プラットフォーム</h3>
+                    <select name="platform" class="dropdown">
+                        <option value="">すべて</option>
+                        {% for platform in filter_options.platforms %}
+                            <option value="{{ platform }}"
+                                {% if platform == selected_platform %}selected{% endif %}>
+                                {{ platform }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <h3>並び替え</h3>
+                    <label class="radio-label">
+                        <input type="radio" name="sort" value="release_date_desc"
+                            {% if sort_by == 'release_date_desc' %}checked{% endif %}>
+                        新しい順
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="sort" value="release_date_asc"
+                            {% if sort_by == 'release_date_asc' %}checked{% endif %}>
+                        古い順
+                    </label>
+                </div>
+
+                <button type="submit" class="btn-primary">検索</button>
+                <a href="{{ url_for('index') }}" class="btn-secondary">リセット</a>
+            </form>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div id="selected-filters-container">
+            <h4>選択中のタグ:</h4>
+            <div id="active-tags-list"></div>
+        </div>
+        <h3 class="search-results-count">検索結果: {{ games|length }} 件</h3>
+        <div class="game-grid">
+            {% if games %}
+                {% for game in games %}
+                    <div class="game-card">
+                        <div class="game-image">
+                            {% if game.image_url %}
+                                <img src="{{ game.image_url }}" alt="{{ game.title }}" onerror="this.src='https://via.placeholder.com/300x200?text=No+Image'">
+                            {% else %}
+                                <img src="https://via.placeholder.com/300x200?text=No+Image" alt="No Image">
+                            {% endif %}
+                        </div>
+                        <div class="game-info">
+                            <h3 class="game-title">{{ game.title }}</h3>
+                            <div class="game-meta">
+                                <span class="game-date">{{ game.release_date }}</span>
+                                <span class="game-genre">{{ game.genre }}</span>
+                                <span class="game-country">{{ game.country }}</span>
+                            </div>
+                            <p class="game-description">{{ game.description }}</p>
+                            <div class="game-tags">
+                                {% for tag in game.preference_tags %}
+                                    <span class="tag">{{ tag }}</span>
+                                {% endfor %}
+                            </div>
+                            <div class="game-actions">
+                                <a href="{{ url_for('game_detail', game_id=game.game_id) }}" class="btn-small">詳細</a>
+                                <a href="{{ url_for('edit_game', game_id=game.game_id) }}" class="btn-small">編集</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="no-results">
+                    <p>条件に合うゲームが見つかりませんでした。</p>
+                    <a href="{{ url_for('index') }}" class="btn-primary">フィルターをリセット</a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all checkbox inputs for filtering (Genres and Preferences)
+    const checkboxes = document.querySelectorAll('input[type="checkbox"][name="genre"], input[type="checkbox"][name="preference"]');
+    const activeTagsList = document.getElementById('active-tags-list');
+
+    function updateSelectedFilters() {
+        // Clear the current list
+        activeTagsList.innerHTML = '';
+
+        // Loop through all checkboxes
+        checkboxes.forEach(checkbox => {
+            if (checkbox.checked) {
+                // Find the parent label element
+                const parentLabel = checkbox.closest('label');
+                if (parentLabel) {
+                    // Get text content and remove the checkbox input text
+                    let labelText = parentLabel.textContent.trim();
+
+                    // Remove any whitespace from the beginning that might be the checkbox
+                    labelText = labelText.replace(/^\s+/, '');
+
+                    // If we found label text, create a tag element
+                    if (labelText) {
+                        const tagElement = document.createElement('span');
+                        tagElement.className = 'tag';
+                        tagElement.textContent = labelText;
+                        activeTagsList.appendChild(tagElement);
+                    }
+                }
+            }
+        });
+    }
+
+    // Add change event listener to each checkbox
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', updateSelectedFilters);
+    });
+
+    // Initialize - trigger on page load to show pre-selected filters
+    updateSelectedFilters();
+});
+</script>
+{% endblock %}

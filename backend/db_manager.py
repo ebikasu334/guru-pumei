@@ -3,39 +3,84 @@
 
 """
 Database Manager Class
-- Handles SQLite connections and cursor management
+- Handles database connections (SQLite and PostgreSQL)
 - Provides context manager for safe database operations
+- Supports environment variable configuration for Render deployment
 """
 
 import sqlite3
+import os
 from typing import Optional, Any, Iterator, Tuple
 from contextlib import contextmanager
+import psycopg2
+from psycopg2.extras import DictCursor
+from urllib.parse import urlparse
 
 class DatabaseManager:
     """Database connection and cursor management class"""
 
-    def __init__(self, db_path: str = 'db/games.db'):
+    def __init__(self, db_url: str = None):
         """
         Initialize the DatabaseManager
 
         Args:
-            db_path: Path to SQLite database file
+            db_url: Database connection URL (uses DATABASE_URL env var if None)
+                   Format: sqlite:///path/to/db or postgresql://user:pass@host:port/dbname
         """
-        self.db_path = db_path
-        self._connection: Optional[sqlite3.Connection] = None
+        self.db_url = db_url or os.environ.get('DATABASE_URL', 'sqlite:///db/games.db')
+        self._connection = None
+        self._db_type = self._determine_db_type()
 
-    def connect(self) -> sqlite3.Connection:
+    def _determine_db_type(self) -> str:
+        """Determine database type from connection URL"""
+        if self.db_url.startswith('postgresql://') or self.db_url.startswith('postgres://'):
+            return 'postgresql'
+        elif self.db_url.startswith('sqlite:///'):
+            return 'sqlite'
+        else:
+            # Default to SQLite for backward compatibility
+            return 'sqlite'
+
+    def _get_sqlite_connection(self):
+        """Get SQLite connection"""
+        # Extract path from sqlite:///path/to/db
+        db_path = self.db_url.replace('sqlite:///', '')
+        conn = sqlite3.connect(db_path)
+        conn.execute("PRAGMA foreign_keys = ON")
+        conn.execute("PRAGMA case_sensitive_like = ON")
+        return conn
+
+    def _get_postgresql_connection(self):
+        """Get PostgreSQL connection"""
+        # Parse PostgreSQL URL
+        if self.db_url.startswith('postgres://'):
+            # Convert postgres:// to postgresql:// for psycopg2
+            db_url = self.db_url.replace('postgres://', 'postgresql://', 1)
+        else:
+            db_url = self.db_url
+
+        parsed = urlparse(db_url)
+        conn = psycopg2.connect(
+            host=parsed.hostname,
+            port=parsed.port or 5432,
+            database=parsed.path[1:],  # Remove leading slash
+            user=parsed.username,
+            password=parsed.password
+        )
+        return conn
+
+    def connect(self):
         """
         Establish database connection
 
         Returns:
-            SQLite connection object
+            Database connection object (sqlite3.Connection or psycopg2.connection)
         """
         if self._connection is None:
-            self._connection = sqlite3.connect(self.db_path)
-            self._connection.execute("PRAGMA foreign_keys = ON")
-            # Enable case-sensitive LIKE for better search
-            self._connection.execute("PRAGMA case_sensitive_like = ON")
+            if self._db_type == 'sqlite':
+                self._connection = self._get_sqlite_connection()
+            elif self._db_type == 'postgresql':
+                self._connection = self._get_postgresql_connection()
         return self._connection
 
     def close(self) -> None:
@@ -45,12 +90,12 @@ class DatabaseManager:
             self._connection = None
 
     @contextmanager
-    def get_cursor(self) -> Iterator[sqlite3.Cursor]:
+    def get_cursor(self):
         """
         Context manager for database cursor
 
         Yields:
-            SQLite cursor object
+            Database cursor object (sqlite3.Cursor or psycopg2.cursor)
 
         Example:
             with db_manager.get_cursor() as cursor:
@@ -58,7 +103,11 @@ class DatabaseManager:
                 results = cursor.fetchall()
         """
         conn = self.connect()
-        cursor = conn.cursor()
+        if self._db_type == 'sqlite':
+            cursor = conn.cursor()
+        else:  # postgresql
+            cursor = conn.cursor(cursor_factory=DictCursor)
+
         try:
             yield cursor
             conn.commit()
@@ -69,12 +118,12 @@ class DatabaseManager:
             cursor.close()
 
     @contextmanager
-    def transaction(self) -> Iterator[sqlite3.Cursor]:
+    def transaction(self):
         """
         Context manager for database transactions
 
         Yields:
-            SQLite cursor object within a transaction
+            Database cursor object within a transaction
 
         Example:
             with db_manager.transaction() as cursor:
@@ -83,7 +132,11 @@ class DatabaseManager:
                 # Automatically rolled back if exception occurs
         """
         conn = self.connect()
-        cursor = conn.cursor()
+        if self._db_type == 'sqlite':
+            cursor = conn.cursor()
+        else:  # postgresql
+            cursor = conn.cursor(cursor_factory=DictCursor)
+
         try:
             yield cursor
             conn.commit()
@@ -118,7 +171,11 @@ class DatabaseManager:
                 cursor.execute(query, params)
             else:
                 cursor.execute(query)
-            return cursor.fetchall()
+
+            if self._db_type == 'sqlite':
+                return cursor.fetchall()
+            else:  # postgresql
+                return [dict(row) for row in cursor.fetchall()]
 
     def execute_update(self, query: str, params: tuple = None) -> int:
         """
@@ -136,7 +193,11 @@ class DatabaseManager:
                 cursor.execute(query, params)
             else:
                 cursor.execute(query)
-            return cursor.rowcount
+
+            if self._db_type == 'sqlite':
+                return cursor.rowcount
+            else:  # postgresql
+                return cursor.rowcount
 
     def get_last_insert_id(self) -> int:
         """
@@ -146,4 +207,11 @@ class DatabaseManager:
             Last inserted row ID
         """
         conn = self.connect()
-        return conn.total_changes
+        if self._db_type == 'sqlite':
+            return conn.total_changes
+        else:  # postgresql
+            # For PostgreSQL, we need to get the last inserted ID differently
+            with self.get_cursor() as cursor:
+                cursor.execute("SELECT lastval()")
+                result = cursor.fetchone()
+                return result[0] if result else 0

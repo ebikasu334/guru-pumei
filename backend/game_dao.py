@@ -15,15 +15,14 @@ from backend.db_manager import DatabaseManager
 class GameDAO:
     """Game Data Access Object class"""
 
-    def __init__(self, db_url: str = None):
+    def __init__(self, db_path: str = 'db/games.db'):
         """
         Initialize the GameDAO
 
         Args:
-            db_url: Database connection URL (uses DATABASE_URL env var if None)
-                   Format: sqlite:///path/to/db or postgresql://user:pass@host:port/dbname
+            db_path: Path to SQLite database file
         """
-        self.db_manager = DatabaseManager(db_url)
+        self.db_manager = DatabaseManager(db_path)
 
     def get_game_by_id(self, game_id: int) -> Optional[Dict[str, Any]]:
         """

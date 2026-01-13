@@ -22,9 +22,8 @@ app.secret_key = 'game-shiru-secret-key'
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
 app.config['ALLOWED_EXTENSIONS'] = {'png', 'jpg', 'jpeg', 'gif', 'webp'}
 
-# Initialize GameDAO with environment variable support
-# Uses DATABASE_URL env var if available, falls back to SQLite for localhost
-game_dao = GameDAO()
+# Initialize GameDAO
+game_dao = GameDAO('db/games.db')
 
 # Helper function to format date for display
 def format_date(date_str):

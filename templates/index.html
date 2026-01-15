@@ -108,8 +108,10 @@
                                 {% endfor %}
                             </div>
                             <div class="game-actions">
-                                <a href="{{ url_for('game_detail', game_id=game.game_id) }}" class="btn-small">詳細</a>
-                                <a href="{{ url_for('edit_game', game_id=game.game_id) }}" class="btn-small">編集</a>
+                                {% if session.get('is_admin') %}
+                                    <a href="{{ url_for('game_detail', game_id=game.game_id) }}" class="btn-small">詳細</a>
+                                    <a href="{{ url_for('edit_game', game_id=game.game_id) }}" class="btn-small">編集</a>
+                                {% endif %}
                             </div>
                         </div>
                     </div>

@@ -7,7 +7,7 @@ Game-Shiru Web Application
 - Integrates with backend DAO for data access
 """
 
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash, session, jsonify
 from backend.game_dao import GameDAO
 import os
 import uuid
@@ -322,6 +322,27 @@ def allowed_file(filename):
     """Check if file has allowed extension"""
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']
+
+# Admin Authentication Routes
+@app.route('/admin/login', methods=['POST'])
+def admin_login():
+    """Admin login route"""
+    data = request.get_json()
+    if not data or 'password' not in data:
+        return jsonify({'error': 'Password is required'}), 400
+
+    # Check if password matches hardcoded value
+    if data['password'] == 'admin123':
+        session['is_admin'] = True
+        return jsonify({'success': True, 'message': 'Login successful'}), 200
+    else:
+        return jsonify({'error': 'Invalid password'}), 401
+
+@app.route('/admin/logout', methods=['POST', 'GET'])
+def admin_logout():
+    """Admin logout route"""
+    session.pop('is_admin', None)
+    return redirect(url_for('index'))
 
 if __name__ == '__main__':
     # Create database directory if it doesn't exist

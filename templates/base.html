@@ -15,7 +15,12 @@
             <h1 class="logo">ゲムしる — あなたの「やりたい」が、すぐに見つかる。</h1>
             <nav class="nav">
                 <a href="{{ url_for('index') }}" class="nav-link">ホーム</a>
-                <a href="{{ url_for('add_game') }}" class="nav-link">ゲームを追加</a>
+                {% if session.get('is_admin') %}
+                    <a href="{{ url_for('add_game') }}" class="nav-link">ゲームを追加</a>
+                    <a href="{{ url_for('admin_logout') }}" class="nav-link admin-logout">管理者モード終了</a>
+                {% else %}
+                    <button class="nav-link admin-login-btn">管理者モード</button>
+                {% endif %}
             </nav>
         </div>
     </header>
@@ -36,6 +41,18 @@
         </div>
     </main>
 
+    <!-- Admin Password Modal -->
+    <div id="admin-modal" class="modal">
+        <div class="modal-content">
+            <h3>管理者認証</h3>
+            <div class="modal-body">
+                <input type="password" id="admin-password" placeholder="パスワードを入力" class="password-input">
+                <button id="admin-login-submit" class="login-btn">ログイン</button>
+                <button id="admin-modal-cancel" class="cancel-btn">キャンセル</button>
+            </div>
+        </div>
+    </div>
+
     <footer class="footer">
         <div class="container">
             <p>&copy; 2024 Game-Shiru. All rights reserved.</p>
@@ -43,5 +60,83 @@
     </footer>
     <!-- Cropper.js JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+
+    <!-- Admin Authentication JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get DOM elements
+            const adminLoginBtn = document.querySelector('.admin-login-btn');
+            const adminModal = document.getElementById('admin-modal');
+            const adminPasswordInput = document.getElementById('admin-password');
+            const adminLoginSubmit = document.getElementById('admin-login-submit');
+            const adminModalCancel = document.getElementById('admin-modal-cancel');
+
+            // Show modal when admin login button is clicked
+            if (adminLoginBtn) {
+                adminLoginBtn.addEventListener('click', function() {
+                    adminModal.style.display = 'block';
+                    adminPasswordInput.value = '';
+                    adminPasswordInput.focus();
+                });
+            }
+
+            // Hide modal when cancel button is clicked
+            if (adminModalCancel) {
+                adminModalCancel.addEventListener('click', function() {
+                    adminModal.style.display = 'none';
+                });
+            }
+
+            // Handle login submission
+            if (adminLoginSubmit) {
+                adminLoginSubmit.addEventListener('click', function() {
+                    const password = adminPasswordInput.value.trim();
+
+                    if (!password) {
+                        alert('パスワードを入力してください');
+                        return;
+                    }
+
+                    // Send login request to backend
+                    fetch('/admin/login', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({password: password})
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            // Login successful, reload page
+                            location.reload();
+                        } else {
+                            // Login failed, show error
+                            return response.json().then(data => {
+                                alert(data.error || 'パスワードが間違っています');
+                            });
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('ログイン中にエラーが発生しました');
+                    });
+                });
+            }
+
+            // Close modal when clicking outside
+            window.addEventListener('click', function(event) {
+                if (event.target === adminModal) {
+                    adminModal.style.display = 'none';
+                }
+            });
+
+            // Close modal with Escape key
+            window.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape' && adminModal.style.display === 'block') {
+                    adminModal.style.display = 'none';
+                }
+            });
+        });
+    </script>
 </body>
 </html>

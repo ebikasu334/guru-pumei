@@ -89,39 +89,69 @@ class GameDAO:
             filters: Dictionary containing filter criteria
                     - 'platform': Platform name (string)
                     - 'genre': Genre name (string)
-                    - 'preference': Preference tag name (string)
+                    - 'preference': Preference tag name (string) or list of tag names
                     - 'country': Developer country (string)
             sort_by: Sort order ('release_date_desc' or 'release_date_asc')
 
         Returns:
             List of dictionaries containing game summaries
         """
-        # Base query
-        query = """
-        SELECT
-            g.game_id, g.title, g.release_date, g.description, g.rating, g.price, g.image_url,
-            d.name as developer_name, d.country as developer_country,
-            gen.name as genre_name,
-            GROUP_CONCAT(DISTINCT p.name) as platforms,
-            GROUP_CONCAT(DISTINCT CASE WHEN pref.category = 'preference' THEN pref.name END) as preference_tags
-        FROM games g
-        JOIN developers d ON g.developer_id = d.developer_id
-        JOIN genres gen ON g.genre_id = gen.genre_id
-        LEFT JOIN game_platforms gp ON g.game_id = gp.game_id
-        LEFT JOIN platforms p ON gp.platform_id = p.platform_id
-        LEFT JOIN game_tags gt ON g.game_id = gt.game_id
-        LEFT JOIN preferences pref ON gt.tag_id = pref.tag_id
-        WHERE g.game_id IN (
-            SELECT MIN(game_id)
-            FROM games
-            GROUP BY title
-        )
-        """
+        # Handle multiple tags with OR logic
+        tag_names = []
+        if 'preference' in filters and filters['preference']:
+            # Support both single tag (string) and multiple tags (list)
+            if isinstance(filters['preference'], str):
+                tag_names = [filters['preference']]
+            elif isinstance(filters['preference'], list):
+                tag_names = filters['preference']
+            else:
+                tag_names = [str(filters['preference'])]
+
+        # Build query based on whether tags are specified
+        if tag_names:
+            # Query with relevance counting for tag-based search
+            query = f"""
+            SELECT
+                g.game_id, g.title, g.release_date, g.description, g.rating, g.price, g.image_url,
+                d.name as developer_name, d.country as developer_country,
+                gen.name as genre_name,
+                GROUP_CONCAT(DISTINCT p.name) as platforms,
+                GROUP_CONCAT(DISTINCT CASE WHEN pref.category = 'preference' THEN pref.name END) as preference_tags,
+                COUNT(DISTINCT CASE WHEN pref.category = 'preference' AND pref.name IN ({', '.join(['?'] * len(tag_names))}) THEN pref.tag_id END) as tag_match_count
+            FROM games g
+            JOIN developers d ON g.developer_id = d.developer_id
+            JOIN genres gen ON g.genre_id = gen.genre_id
+            LEFT JOIN game_platforms gp ON g.game_id = gp.game_id
+            LEFT JOIN platforms p ON gp.platform_id = p.platform_id
+            LEFT JOIN game_tags gt ON g.game_id = gt.game_id
+            LEFT JOIN preferences pref ON gt.tag_id = pref.tag_id
+            WHERE 1=1
+            """
+        else:
+            # Query without relevance counting for backward compatibility
+            query = """
+            SELECT
+                g.game_id, g.title, g.release_date, g.description, g.rating, g.price, g.image_url,
+                d.name as developer_name, d.country as developer_country,
+                gen.name as genre_name,
+                GROUP_CONCAT(DISTINCT p.name) as platforms,
+                GROUP_CONCAT(DISTINCT CASE WHEN pref.category = 'preference' THEN pref.name END) as preference_tags,
+                0 as tag_match_count
+            FROM games g
+            JOIN developers d ON g.developer_id = d.developer_id
+            JOIN genres gen ON g.genre_id = gen.genre_id
+            LEFT JOIN game_platforms gp ON g.game_id = gp.game_id
+            LEFT JOIN platforms p ON gp.platform_id = p.platform_id
+            LEFT JOIN game_tags gt ON g.game_id = gt.game_id
+            LEFT JOIN preferences pref ON gt.tag_id = pref.tag_id
+            WHERE 1=1
+            """
 
         # Apply filters
         conditions = []
         params = []
 
+        # Apply other filters
         if 'platform' in filters and filters['platform']:
             conditions.append("p.name = ?")
             params.append(filters['platform'])
@@ -130,10 +160,6 @@ class GameDAO:
             conditions.append("gen.name = ?")
             params.append(filters['genre'])
 
-        if 'preference' in filters and filters['preference']:
-            conditions.append("pref.name = ? AND pref.category = 'preference'")
-            params.append(filters['preference'])
-
         if 'country' in filters and filters['country']:
             conditions.append("d.country = ?")
             params.append(filters['country'])
@@ -141,10 +167,20 @@ class GameDAO:
         if conditions:
             query += " AND " + " AND ".join(conditions)
 
-        # Group and sort
+        # Group by clause
         query += """
         GROUP BY g.game_id, g.title, g.release_date, g.description, g.rating, g.price, g.image_url, d.name, d.country, gen.name
-        ORDER BY g.release_date """ + ("DESC" if sort_by == 'release_date_desc' else "ASC")
+        """
+
+        # Apply sorting
+        if tag_names:
+            # Add tag names to params for the IN clause
+            params.extend(tag_names)
+            # Sort by relevance (tag match count) first, then by release date
+            query += " ORDER BY tag_match_count DESC, g.release_date DESC"
+        else:
+            # No tags specified, use original sorting
+            query += " ORDER BY g.release_date " + ("DESC" if sort_by == 'release_date_desc' else "ASC")
 
         results = self.db_manager.execute_query(query, tuple(params))
 
@@ -160,7 +196,8 @@ class GameDAO:
             'country': row[8],
             'genre': row[9],
             'platforms': [p.strip() for p in row[10].split(',')] if row[10] else [],
-            'preference_tags': [t.strip() for t in row[11].split(',')] if row[11] else []
+            'preference_tags': [t.strip() for t in row[11].split(',')] if row[11] else [],
+            'tag_match_count': row[12] if len(row) > 12 else 0
         } for row in results]
 
     def create_game(self, game_data: Dict[str, Any]) -> int:

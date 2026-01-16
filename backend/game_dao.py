@@ -468,13 +468,28 @@ class GameDAO:
             else:
                 genre_name = "Unknown"
 
+            # Check if genre with this name already exists
             cursor.execute(
-                "UPDATE genres SET name = ? WHERE genre_id = ?",
-                (
-                    genre_name,
-                    existing_game['genre']['genre_id']
-                )
+                "SELECT genre_id FROM genres WHERE name = ?",
+                (genre_name,)
             )
+            existing_genre = cursor.fetchone()
+
+            if existing_genre:
+                # Genre already exists, update game to use existing genre_id
+                cursor.execute(
+                    "UPDATE games SET genre_id = ? WHERE game_id = ?",
+                    (existing_genre[0], game_id)
+                )
+            else:
+                # Genre doesn't exist, update the current genre record
+                cursor.execute(
+                    "UPDATE genres SET name = ? WHERE genre_id = ?",
+                    (
+                        genre_name,
+                        existing_game['genre']['genre_id']
+                    )
+                )
 
             # Update platforms if provided
             if 'platforms' in game_data:

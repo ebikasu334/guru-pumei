@@ -41,10 +41,6 @@
                 <label for="image_file">ゲーム画像</label>
                 <input type="file" id="image_file" name="image_file" accept="image/*">
             </div>
-            <div class="form-group">
-                <label for="image_url">または画像URL</label>
-                <input type="url" id="image_url" name="image_url" value="{{ game.image_url }}">
-            </div>
         </div>
 
         <div class="form-section">
@@ -62,18 +58,6 @@
                     {% for country in filter_options.countries %}
                         <option value="{{ country }}" {% if country == game.developer_country %}selected{% endif %}>
                             {{ country }}
-                        </option>
-                    {% endfor %}
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="genre">ジャンル</label>
-                <select id="genre" name="genre" required>
-                    <option value="">選択してください</option>
-                    {% for genre in filter_options.genres %}
-                        <option value="{{ genre }}" {% if genre == game.genre %}selected{% endif %}>
-                            {{ genre }}
                         </option>
                     {% endfor %}
                 </select>

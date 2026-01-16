@@ -73,14 +73,14 @@ def index():
     selected_platform = request.args.get('platform')
     sort_by = request.args.get('sort', 'release_date_desc')
 
-    # Build filters dictionary
+    # Build filters dictionary using new relevance-based search
     filters = {}
     if selected_genres:
-        # For multiple genres, we'll use the first one (could be enhanced)
-        filters['genre'] = selected_genres[0]
+        # Use all selected genres for OR condition
+        filters['genres'] = selected_genres
     if selected_preferences:
-        # For multiple preferences, we'll use the first one (could be enhanced)
-        filters['preference'] = selected_preferences[0]
+        # Use all selected preferences for OR condition
+        filters['preferences'] = selected_preferences
     if selected_country:
         filters['country'] = selected_country
     if selected_platform:
@@ -159,9 +159,6 @@ def add_game():
                 'name': request.form['developer_name'],
                 'country': request.form['developer_country']
             },
-            'genre': {
-                'name': request.form['genre']
-            },
             'platforms': request.form.getlist('platforms'),
             'genre_tags': request.form.getlist('genre_tags'),
             'preference_tags': request.form.getlist('preference_tags')
@@ -183,11 +180,11 @@ def add_game():
                 # Save relative path to database
                 game_data['image_url'] = f"/{app.config['UPLOAD_FOLDER']}/{unique_filename}"
             else:
-                # Use text input as fallback
-                game_data['image_url'] = request.form['image_url']
+                # No image provided, set default image
+                game_data['image_url'] = "/static/images/no_image.png"
         else:
-            # Use text input as fallback
-            game_data['image_url'] = request.form['image_url']
+            # No image provided, set default image
+            game_data['image_url'] = "/static/images/no_image.png"
 
         # Create game
         game_id = game_dao.create_game(game_data)
@@ -229,9 +226,6 @@ def edit_game(game_id):
                 'name': request.form['developer_name'],
                 'country': request.form['developer_country']
             },
-            'genre': {
-                'name': request.form['genre']
-            },
             'platforms': request.form.getlist('platforms'),
             'genre_tags': request.form.getlist('genre_tags'),
             'preference_tags': request.form.getlist('preference_tags')
@@ -252,12 +246,7 @@ def edit_game(game_id):
 
                 # Save relative path to database
                 update_data['image_url'] = f"/{app.config['UPLOAD_FOLDER']}/{unique_filename}"
-            else:
-                # Use text input as fallback
-                update_data['image_url'] = request.form['image_url']
-        else:
-            # Use text input as fallback
-            update_data['image_url'] = request.form['image_url']
+            # If no new file is uploaded, keep the existing image_url
 
         # Update game
         success = game_dao.update_game(game_id, update_data)

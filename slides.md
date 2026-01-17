@@ -44,6 +44,12 @@ paginate: true
 
 **3層アーキテクチャ**:
 
+<style scoped>
+section {
+  font-size: 22px;
+}
+</style>
+
 1. **ユーザーインターフェース層**
    - Webブラウザ
    - モバイルアプリ
@@ -62,6 +68,13 @@ paginate: true
 ---
 
 # アプリ構成: フォルダ概要
+
+<style scoped>
+section {
+  font-size: 22px;
+}
+</style>
+
 
 ```
 game-app/
@@ -112,6 +125,13 @@ flowchart LR
     C -->|Templates| H[HTML Templates]
 ```
 
+<style scoped>
+section {
+  font-size: 22px;
+}
+</style>
+
+
 **データフロー**:
 1. ユーザーがブラウザで操作
 2. Flaskアプリがリクエストを処理
@@ -129,6 +149,14 @@ flowchart LR
 - **リレーション**: 多対多関係のためのジャンクションテーブル
 
 **トランザクション処理**:
+
+<style scoped>
+section {
+  font-size: 22px;
+}
+</style>
+
+
 ```python
 # DatabaseManagerクラスのトランザクション処理
 @contextmanager

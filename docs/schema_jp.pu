@@ -1,0 +1,97 @@
+@startuml Game-Shiru データベーススキーマ（日本語）
+title Game-Shiru データベース設計 (3NF)
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultFontName "Noto Sans JP"
+skinparam defaultFontSize 12
+
+' メインエンティティ
+entity "ゲーム" as games {
+  + ゲームID [PK] : INTEGER
+  --
+  タイトル : TEXT
+  リリース日 : DATE
+  説明 : TEXT
+  評価 : REAL
+  価格 : REAL
+  画像URL : TEXT
+  開発者ID [FK] : INTEGER
+  ジャンルID [FK] : INTEGER
+}
+
+entity "プラットフォーム" as platforms {
+  + プラットフォームID [PK] : INTEGER
+  --
+  名前 : TEXT
+  メーカー : TEXT
+  リリース年 : INTEGER
+}
+
+entity "ジャンル" as genres {
+  + ジャンルID [PK] : INTEGER
+  --
+  名前 : TEXT
+  説明 : TEXT
+}
+
+entity "タグ" as preferences {
+  + タグID [PK] : INTEGER
+  --
+  名前 : TEXT
+  カテゴリ : TEXT
+}
+
+entity "開発者" as developers {
+  + 開発者ID [PK] : INTEGER
+  --
+  名前 : TEXT
+  国 : TEXT
+  設立年 : INTEGER
+  ウェブサイト : TEXT
+}
+
+' 接続テーブル（多対多関係）
+entity "ゲームプラットフォーム" as game_platforms {
+  + ゲームID [PK, FK] : INTEGER
+  + プラットフォームID [PK, FK] : INTEGER
+}
+
+entity "ゲームタグ" as game_tags {
+  + ゲームID [PK, FK] : INTEGER
+  + タグID [PK, FK] : INTEGER
+}
+
+' 関係定義
+games ||--o{ game_platforms : "対応"
+platforms ||--o{ game_platforms : "サポート"
+
+games ||--o{ game_tags : "持つ"
+preferences ||--o{ game_tags : "適用"
+
+games }|--|| developers : "開発"
+games }|--|| genres : "属する"
+
+' 注釈
+note top of games
+  ゲームの基本情報を保持
+  第3正規形による正規化設計
+  開発者とジャンルを別テーブルで管理
+end note
+
+note right of game_platforms
+  ゲーム ↔ プラットフォーム
+  多対多関係の接続テーブル
+end note
+
+note right of game_tags
+  ゲーム ↔ タグ
+  多対多関係の接続テーブル
+end note
+
+note bottom
+  すべての外部キーに
+  参照整合性制約を設定
+  SQLiteによるインデックス最適化
+end note
+
+@enduml

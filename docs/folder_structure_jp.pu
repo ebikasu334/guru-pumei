@@ -1,0 +1,144 @@
+@startuml Game-Shiru フォルダ構成図（日本語）
+title Game-Shiru アプリ構成 フォルダ概要
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultFontName "Noto Sans JP"
+skinparam defaultFontSize 12
+
+' メインプロジェクトフォルダ
+folder "game-app_ver2" as project {
+  ' ルートファイル
+  file "app.py" as app_py
+  file "requirements.txt" as requirements
+  file "README.md" as readme
+  file "ER図.png" as er_diagram
+  file "システム構成図.png" as system_diagram
+
+  ' バックエンドフォルダ
+  folder "backend" as backend {
+    file "db_manager.py" as db_manager
+    file "game_dao.py" as game_dao
+  }
+
+  ' データベースフォルダ
+  folder "db" as database {
+    file "games.db" as games_db
+    file "init_db.py" as init_db
+    file "schema.sql" as schema_sql
+    file "test_db.py" as test_db
+  }
+
+  ' ドキュメントフォルダ
+  folder "docs" as docs {
+    file "architecture.pu" as arch_pu
+    file "architecture_jp.pu" as arch_jp_pu
+    file "schema.pu" as schema_pu
+    file "schema_jp.pu" as schema_jp_pu
+  }
+
+  ' 静的ファイルフォルダ
+  folder "static" as static {
+    file "style.css" as style_css
+    folder "images" as images {
+      file "game_*.jpg" as game_images
+      file "no_image.png" as no_image
+      folder "game_covers" as covers
+    }
+    folder "uploads" as uploads
+  }
+
+  ' テンプレートフォルダ
+  folder "templates" as templates {
+    file "base.html" as base_html
+    file "index.html" as index_html
+    file "detail.html" as detail_html
+    file "add.html" as add_html
+    file "edit.html" as edit_html
+  }
+
+  ' データフォルダ
+  folder "data" as data {
+    file "games.json" as games_json
+  }
+}
+
+' アプリケーション構成
+package "フロントエンド" as frontend {
+  component "HTML5/CSS3" as html_css
+  component "JavaScript" as javascript
+  component "Jinja2テンプレート" as jinja2
+  component "Google Fonts" as google_fonts
+  component "Cropper.js" as cropper_js
+}
+
+package "バックエンド" as backend_pkg {
+  component "Flask" as flask
+  component "Python 3.x" as python
+  component "SQLAlchemy" as sqlalchemy
+  component "GameDAO" as game_dao_comp
+}
+
+package "データベース" as database_pkg {
+  component "SQLite" as sqlite
+  component "7つのテーブル" as tables
+  component "第3正規形" as normalization
+  component "外部キー制約" as foreign_keys
+}
+
+' 接続
+app_py --> backend_pkg
+backend_pkg --> database_pkg
+app_py --> frontend
+frontend --> google_fonts
+frontend --> cropper_js
+
+game_dao --> game_dao_comp
+db_manager --> game_dao_comp
+
+games_db --> tables
+games_db --> normalization
+games_db --> foreign_keys
+
+' 凡例
+legend right
+  | フォルダ構成図凡例 |
+  =====================
+  📁: フォルダ
+  📄: ファイル
+  🗂: パッケージ
+  🔧: コンポーネント
+  →: 依存関係
+endlegend
+
+' 注釈
+note top of project
+  Game-Shiruプロジェクト
+  ゲーム推薦システム
+  Flask + SQLite構成
+end note
+
+note right of backend
+  データアクセス層
+  DAOデザインパターン
+  トランザクション管理
+end note
+
+note right of database
+  データベース層
+  正規化設計
+  データ整合性管理
+end note
+
+note right of frontend
+  フロントエンド層
+  レスポンシブデザイン
+  ユーザーインターフェース
+end note
+
+note bottom
+  フォルダ構成図
+  アプリケーション構成
+  技術スタック概要
+end note
+
+@enduml

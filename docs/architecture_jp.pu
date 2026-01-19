@@ -1,0 +1,94 @@
+@startuml Game-Shiru システム構成図（日本語）
+title Game-Shiru システムアーキテクチャ
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultFontName "Noto Sans JP"
+skinparam defaultFontSize 14
+
+' ユーザーレイヤー
+rectangle "ユーザー" as user {
+  rectangle "ウェブブラウザ" as browser
+}
+
+' アプリケーションサーバーレイヤー
+rectangle "Flaskアプリケーションサーバー" as flask_server {
+  rectangle "Flaskアプリケーション" as flask_app
+  rectangle "GameDAO" as game_dao
+  rectangle "静的ファイルサーバー" as static_server
+}
+
+' データベースレイヤー
+rectangle "SQLiteデータベース" as sqlite_db {
+  rectangle "ゲームテーブル" as games_tbl
+  rectangle "開発者テーブル" as developers_tbl
+  rectangle "ジャンルテーブル" as genres_tbl
+  rectangle "プラットフォームテーブル" as platforms_tbl
+  rectangle "タグテーブル" as preferences_tbl
+  rectangle "接続テーブル" as junction_tbl
+}
+
+' 外部サービス
+cloud "外部サービス" as external {
+  rectangle "Google Fonts CDN" as google_fonts
+  rectangle "Cropper.js CDN" as cropper_js
+}
+
+' 接続
+user --> flask_server : "HTTPリクエスト\n(ゲーム検索・表示)"
+flask_server --> user : "HTML/CSS/JS\n(ゲーム情報表示)"
+
+flask_app --> game_dao : "データアクセス\n(CRUD操作)"
+game_dao --> sqlite_db : "SQLクエリ\n(データ取得・更新)"
+
+flask_app --> static_server : "静的リソース\n(CSS/画像)"
+static_server --> user : "静的コンテンツ\n(スタイル・画像)"
+
+browser --> google_fonts : "フォント取得"
+browser --> cropper_js : "画像編集機能"
+
+google_fonts --> browser : "日本語フォント"
+cropper_js --> browser : "画像処理ライブラリ"
+
+' 詳細接続
+flask_app --> sqlite_db : "直接アクセス\n(簡易構成)"
+game_dao --> sqlite_db : "DAOパターン\n(データアクセス層)"
+
+' 凡例
+legend right
+  | システムコンポーネント |
+  =========================
+  ユーザー: ブラウザインターフェース
+  Flaskサーバー: ウェブアプリケーション
+  GameDAO: データアクセスオブジェクト
+  SQLite: リレーショナルデータベース
+  静的サーバー: CSS/画像配信
+  外部CDN: サードパーティサービス
+endlegend
+
+' 注釈
+note top of user
+  ゲーム検索・詳細表示
+  管理者機能（追加/編集）
+end note
+
+note right of flask_server
+  Python Flaskフレームワーク
+  Jinja2テンプレートエンジン
+  セッション管理
+  管理者認証
+end note
+
+note right of sqlite_db
+  第3正規形（3NF）
+  7つのテーブル構成
+  外部キー制約
+  トランザクション管理
+end note
+
+note bottom
+  シンプルな3層アーキテクチャ
+  ユーザー → アプリケーション → データベース
+  外部CDNによる機能拡張
+end note
+
+@enduml
